@@ -1,0 +1,230 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>lib-icons/Badges/dorm.gif</file>
+    <file>lib-icons/Badges/Add.png</file>
+    <file>lib-icons/Badges/Alert.png</file>
+    <file>lib-icons/Badges/Allow.png</file>
+    <file>lib-icons/Badges/Deny.png</file>
+    <file>lib-icons/Badges/Error.png</file>
+    <file>lib-icons/Badges/Remove.png</file>
+    <file>lib-icons/Windows Icons/Address Book.ico</file>
+    <file>lib-icons/Windows Icons/Aero Window - Explorer.ico</file>
+    <file>lib-icons/Windows Icons/Aero Window - List.ico</file>
+    <file>lib-icons/Windows Icons/Alert.ico</file>
+    <file>lib-icons/Windows Icons/Applications.ico</file>
+    <file>lib-icons/Windows Icons/Battery.ico</file>
+    <file>lib-icons/Windows Icons/Battery Display - Charging.ico</file>
+    <file>lib-icons/Windows Icons/Battery Display - Full.ico</file>
+    <file>lib-icons/Windows Icons/Battery Display.ico</file>
+    <file>lib-icons/Windows Icons/Battery Display Low.ico</file>
+    <file>lib-icons/Windows Icons/Bell.ico</file>
+    <file>lib-icons/Windows Icons/Book - Bookmark.ico</file>
+    <file>lib-icons/Windows Icons/Book.ico</file>
+    <file>lib-icons/Windows Icons/Bookshelf - Empty.ico</file>
+    <file>lib-icons/Windows Icons/Bookshelf.ico</file>
+    <file>lib-icons/Windows Icons/Box - This Side Up.ico</file>
+    <file>lib-icons/Windows Icons/Box.ico</file>
+    <file>lib-icons/Windows Icons/Burn.ico</file>
+    <file>lib-icons/Windows Icons/Calendar - Blue.ico</file>
+    <file>lib-icons/Windows Icons/Calendar - Day View.ico</file>
+    <file>lib-icons/Windows Icons/Calendar - Month View.ico</file>
+    <file>lib-icons/Windows Icons/Camera.ico</file>
+    <file>lib-icons/Windows Icons/CD - Burn.ico</file>
+    <file>lib-icons/Windows Icons/CD.ico</file>
+    <file>lib-icons/Windows Icons/Chalkboard.ico</file>
+    <file>lib-icons/Windows Icons/Chalkboard Empty.ico</file>
+    <file>lib-icons/Windows Icons/Chest of Drawers - Open - Files.ico</file>
+    <file>lib-icons/Windows Icons/Chest of Drawers - Open.ico</file>
+    <file>lib-icons/Windows Icons/Chest of Drawers.ico</file>
+    <file>lib-icons/Windows Icons/Chip.ico</file>
+    <file>lib-icons/Windows Icons/Christmas Tree - Lit.ico</file>
+    <file>lib-icons/Windows Icons/Christmas Tree - Undecorated.ico</file>
+    <file>lib-icons/Windows Icons/Christmas Tree.ico</file>
+    <file>lib-icons/Windows Icons/Clapperboard - Blank.ico</file>
+    <file>lib-icons/Windows Icons/Clapperboard  - Picture.ico</file>
+    <file>lib-icons/Windows Icons/Clapperboard.ico</file>
+    <file>lib-icons/Windows Icons/Clapperboard  Closed.ico</file>
+    <file>lib-icons/Windows Icons/Clipboard - Empty.ico</file>
+    <file>lib-icons/Windows Icons/Clipboard - Fold.ico</file>
+    <file>lib-icons/Windows Icons/Clipboard - Text.ico</file>
+    <file>lib-icons/Windows Icons/Clipboard - Torn.ico</file>
+    <file>lib-icons/Windows Icons/Clipboard.ico</file>
+    <file>lib-icons/Windows Icons/Color Wheel.ico</file>
+    <file>lib-icons/Windows Icons/Contact Card.ico</file>
+    <file>lib-icons/Windows Icons/Curtains.ico</file>
+    <file>lib-icons/Windows Icons/Dashboard.ico</file>
+    <file>lib-icons/Windows Icons/Decoration - Branch.ico</file>
+    <file>lib-icons/Windows Icons/Decoration.ico</file>
+    <file>lib-icons/Windows Icons/Delete.ico</file>
+    <file>lib-icons/Windows Icons/Design - Blueprint.ico</file>
+    <file>lib-icons/Windows Icons/Design.ico</file>
+    <file>lib-icons/Windows Icons/Desktop.ico</file>
+    <file>lib-icons/Windows Icons/Dictionary.ico</file>
+    <file>lib-icons/Windows Icons/Digsby.ico</file>
+    <file>lib-icons/Windows Icons/Disk - Hard Disk.ico</file>
+    <file>lib-icons/Windows Icons/Disk - iDisk.ico</file>
+    <file>lib-icons/Windows Icons/Disk - Removable.ico</file>
+    <file>lib-icons/Windows Icons/Disk - Time Machine.ico</file>
+    <file>lib-icons/Windows Icons/Door - Chat Room.ico</file>
+    <file>lib-icons/Windows Icons/Door.ico</file>
+    <file>lib-icons/Windows Icons/Download - High Speed.ico</file>
+    <file>lib-icons/Windows Icons/Download - Turbo Speed.ico</file>
+    <file>lib-icons/Windows Icons/Download.ico</file>
+    <file>lib-icons/Windows Icons/E-Mail.ico</file>
+    <file>lib-icons/Windows Icons/Emoticon - Sleep.ico</file>
+    <file>lib-icons/Windows Icons/Emoticon.ico</file>
+    <file>lib-icons/Windows Icons/Envelope - Airmail.ico</file>
+    <file>lib-icons/Windows Icons/Envelope.ico</file>
+    <file>lib-icons/Windows Icons/Error.ico</file>
+    <file>lib-icons/Windows Icons/exit.png</file>
+    <file>lib-icons/Windows Icons/Face Book.ico</file>
+    <file>lib-icons/Windows Icons/File.ico</file>
+    <file>lib-icons/Windows Icons/Filetype - Blueprint - Under Construction.ico</file>
+    <file>lib-icons/Windows Icons/Filetype - Blueprint.ico</file>
+    <file>lib-icons/Windows Icons/Filetype - RSS.ico</file>
+    <file>lib-icons/Windows Icons/Filetype.ico</file>
+    <file>lib-icons/Windows Icons/Filetype  RSS  Orange.ico</file>
+    <file>lib-icons/Windows Icons/Filetype  Script.ico</file>
+    <file>lib-icons/Windows Icons/Filetype  Under Construction.ico</file>
+    <file>lib-icons/Windows Icons/Filetype  Video.ico</file>
+    <file>lib-icons/Windows Icons/Film Roll.ico</file>
+    <file>lib-icons/Windows Icons/Filmstrip.ico</file>
+    <file>lib-icons/Windows Icons/Folder  Blue.ico</file>
+    <file>lib-icons/Windows Icons/Folder  Classic  Blue.ico</file>
+    <file>lib-icons/Windows Icons/Folder  Classic  Recycled.ico</file>
+    <file>lib-icons/Windows Icons/Folder Classic Yellow.ico</file>
+    <file>lib-icons/Windows Icons/Folder Recycled.ico</file>
+    <file>lib-icons/Windows Icons/Folder Yellow.ico</file>
+    <file>lib-icons/Windows Icons/Gear.ico</file>
+    <file>lib-icons/Windows Icons/Get-Info.ico</file>
+    <file>lib-icons/Windows Icons/Gift Box.ico</file>
+    <file>lib-icons/Windows Icons/Gift Box  Blue.ico</file>
+    <file>lib-icons/Windows Icons/Glass  Cola.ico</file>
+    <file>lib-icons/Windows Icons/Glass Cola Ice.ico</file>
+    <file>lib-icons/Windows Icons/Glass Empty.ico</file>
+    <file>lib-icons/Windows Icons/Glass Water.ico</file>
+    <file>lib-icons/Windows Icons/Glass Water Ice.ico</file>
+    <file>lib-icons/Windows Icons/Hard Disk Installation.ico</file>
+    <file>lib-icons/Windows Icons/House.ico</file>
+    <file>lib-icons/Windows Icons/iCal.ico</file>
+    <file>lib-icons/Windows Icons/Inkwell.ico</file>
+    <file>lib-icons/Windows Icons/Instant Messaging.ico</file>
+    <file>lib-icons/Windows Icons/iPhone.ico</file>
+    <file>lib-icons/Windows Icons/iPhone Application.ico</file>
+    <file>lib-icons/Windows Icons/iPhone Locked.ico</file>
+    <file>lib-icons/Windows Icons/iSight.ico</file>
+    <file>lib-icons/Windows Icons/Jewel Case CD.ico</file>
+    <file>lib-icons/Windows Icons/Jewel Case Cover.ico</file>
+    <file>lib-icons/Windows Icons/Jewel Case Empty.ico</file>
+    <file>lib-icons/Windows Icons/Key Command.ico</file>
+    <file>lib-icons/Windows Icons/Key Windows.ico</file>
+    <file>lib-icons/Windows Icons/Library.ico</file>
+    <file>lib-icons/Windows Icons/Lock.ico</file>
+    <file>lib-icons/Windows Icons/Lock Unlocked.ico</file>
+    <file>lib-icons/Windows Icons/Magnifying Glass.ico</file>
+    <file>lib-icons/Windows Icons/Microphone.ico</file>
+    <file>lib-icons/Windows Icons/Microphone Classic.ico</file>
+    <file>lib-icons/Windows Icons/Money.ico</file>
+    <file>lib-icons/Windows Icons/Money Glowing.ico</file>
+    <file>lib-icons/Windows Icons/Monitor.ico</file>
+    <file>lib-icons/Windows Icons/Monitor Film.ico</file>
+    <file>lib-icons/Windows Icons/Monitor Music Video.ico</file>
+    <file>lib-icons/Windows Icons/Monitor Wallpaper.ico</file>
+    <file>lib-icons/Windows Icons/Mug.ico</file>
+    <file>lib-icons/Windows Icons/Mug Empty.ico</file>
+    <file>lib-icons/Windows Icons/Musical Note.ico</file>
+    <file>lib-icons/Windows Icons/Newspaper.ico</file>
+    <file>lib-icons/Windows Icons/Newspaper RSS.ico</file>
+    <file>lib-icons/Windows Icons/Newsreader.ico</file>
+    <file>lib-icons/Windows Icons/Note White.ico</file>
+    <file>lib-icons/Windows Icons/Note Yellow.ico</file>
+    <file>lib-icons/Windows Icons/Notification.ico</file>
+    <file>lib-icons/Windows Icons/OS Mac OS X.ico</file>
+    <file>lib-icons/Windows Icons/OS Windows 7.ico</file>
+    <file>lib-icons/Windows Icons/OS Windows Vista.ico</file>
+    <file>lib-icons/Windows Icons/Panel.ico</file>
+    <file>lib-icons/Windows Icons/Panel Colors.ico</file>
+    <file>lib-icons/Windows Icons/Panel Find.ico</file>
+    <file>lib-icons/Windows Icons/Panel Inspector.ico</file>
+    <file>lib-icons/Windows Icons/Pen.ico</file>
+    <file>lib-icons/Windows Icons/Pencil.ico</file>
+    <file>lib-icons/Windows Icons/Pencil and Ruler.ico</file>
+    <file>lib-icons/Windows Icons/Photo.ico</file>
+    <file>lib-icons/Windows Icons/Photo Polaroid.ico</file>
+    <file>lib-icons/Windows Icons/Pie Chart.ico</file>
+    <file>lib-icons/Windows Icons/Pin.ico</file>
+    <file>lib-icons/Windows Icons/Plant.ico</file>
+    <file>lib-icons/Windows Icons/Preferences Panel.ico</file>
+    <file>lib-icons/Windows Icons/Presentation.ico</file>
+    <file>lib-icons/Windows Icons/Project.ico</file>
+    <file>lib-icons/Windows Icons/Project Blueprints.ico</file>
+    <file>lib-icons/Windows Icons/RAM.ico</file>
+    <file>lib-icons/Windows Icons/Reception Bell.ico</file>
+    <file>lib-icons/Windows Icons/Reception Bell Gold.png</file>
+    <file>lib-icons/Windows Icons/RSS.ico</file>
+    <file>lib-icons/Windows Icons/Ruler.ico</file>
+    <file>lib-icons/Windows Icons/Safari.ico</file>
+    <file>lib-icons/Windows Icons/Safe.ico</file>
+    <file>lib-icons/Windows Icons/Safe Dark.ico</file>
+    <file>lib-icons/Windows Icons/Safe Open.ico</file>
+    <file>lib-icons/Windows Icons/Safe  Open  Money.ico</file>
+    <file>lib-icons/Windows Icons/School Bell.ico</file>
+    <file>lib-icons/Windows Icons/Shield.ico</file>
+    <file>lib-icons/Windows Icons/Shield  Swords.ico</file>
+    <file>lib-icons/Windows Icons/Shopping Bag.ico</file>
+    <file>lib-icons/Windows Icons/Shopping Bag Black.ico</file>
+    <file>lib-icons/Windows Icons/Shopping Bag Paperboard.ico</file>
+    <file>lib-icons/Windows Icons/Shopping Bag Price Tag.ico</file>
+    <file>lib-icons/Windows Icons/Sign Post.ico</file>
+    <file>lib-icons/Windows Icons/Sign Post Alternate.ico</file>
+    <file>lib-icons/Windows Icons/Slide Show.ico</file>
+    <file>lib-icons/Windows Icons/Spinning Beach Ball.ico</file>
+    <file>lib-icons/Windows Icons/Status.ico</file>
+    <file>lib-icons/Windows Icons/Stoplight.ico</file>
+    <file>lib-icons/Windows Icons/Stopwatch Off.ico</file>
+    <file>lib-icons/Windows Icons/Stopwatch On.ico</file>
+    <file>lib-icons/Windows Icons/Suit.ico</file>
+    <file>lib-icons/Windows Icons/Time  Machine.ico</file>
+    <file>lib-icons/Windows Icons/Top Hat.ico</file>
+    <file>lib-icons/Windows Icons/Top Hat Magic.ico</file>
+    <file>lib-icons/Windows Icons/Top Hat Magic Wand.ico</file>
+    <file>lib-icons/Windows Icons/Top Hat Wand.ico</file>
+    <file>lib-icons/Windows Icons/Traffic  Link.ico</file>
+    <file>lib-icons/Windows Icons/Traffic No Entry.ico</file>
+    <file>lib-icons/Windows Icons/Traffic Stop.ico</file>
+    <file>lib-icons/Windows Icons/Traffic Warning.ico</file>
+    <file>lib-icons/Windows Icons/Traffic Yield.ico</file>
+    <file>lib-icons/Windows Icons/Trash.ico</file>
+    <file>lib-icons/Windows Icons/Trash  Empty.ico</file>
+    <file>lib-icons/Windows Icons/Trash Full.ico</file>
+    <file>lib-icons/Windows Icons/Trees.ico</file>
+    <file>lib-icons/Windows Icons/Twitter.ico</file>
+    <file>lib-icons/Windows Icons/Twitter Mention.ico</file>
+    <file>lib-icons/Windows Icons/Twitter Retweet.ico</file>
+    <file>lib-icons/Windows Icons/UI Appearance.ico</file>
+    <file>lib-icons/Windows Icons/UI Debug.ico</file>
+    <file>lib-icons/Windows Icons/UI Drawer.ico</file>
+    <file>lib-icons/Windows Icons/UI Finder.ico</file>
+    <file>lib-icons/Windows Icons/UI Inspector.ico</file>
+    <file>lib-icons/Windows Icons/UI List Window.ico</file>
+    <file>lib-icons/Windows Icons/UI Movie.ico</file>
+    <file>lib-icons/Windows Icons/UI Movie Window.ico</file>
+    <file>lib-icons/Windows Icons/UI  Rulers.ico</file>
+    <file>lib-icons/Windows Icons/UI Sidebar.ico</file>
+    <file>lib-icons/Windows Icons/UI Text.ico</file>
+    <file>lib-icons/Windows Icons/UI Window.ico</file>
+    <file>lib-icons/Windows Icons/User.ico</file>
+    <file>lib-icons/Windows Icons/Users.ico</file>
+    <file>lib-icons/Windows Icons/Wall Clock.ico</file>
+    <file>lib-icons/Windows Icons/Wall Clock Past.ico</file>
+    <file>lib-icons/Windows Icons/Wall Clock Time Machine.ico</file>
+    <file>lib-icons/Windows Icons/Wallet.ico</file>
+    <file>lib-icons/Windows Icons/Wallet Money.ico</file>
+    <file>lib-icons/Windows Icons/Wand.ico</file>
+    <file>lib-icons/Windows Icons/Wand Magic.ico</file>
+    <file>lib-icons/Windows Icons/Website.ico</file>
+    <file>lib-icons/Windows Icons/Website Alias.ico</file>
+    <file>lib-icons/Windows Icons/Website Download.ico</file>
+    <file>lib-icons/Windows Icons/Website Link.ico</file>
+  </qresource>
+</RCC>
