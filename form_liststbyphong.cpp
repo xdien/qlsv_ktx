@@ -12,7 +12,6 @@ Form_listSTbyPhong::Form_listSTbyPhong(QWidget *parent) :
     querymodel_room = new QSqlQueryModel();
     querymodel_room->setQuery("select ma_phong from PHONG");
     ui->treeView_phong->setModel(querymodel_room);
-    ui->tableView->setModel(querymodel_room);
 }
 
 Form_listSTbyPhong::~Form_listSTbyPhong()
@@ -33,9 +32,7 @@ void Form_listSTbyPhong::on_pushButton_2_clicked()
 {
     NCReport *report = new NCReport();
     report->setReportSource( NCReportSource::File ); // set report source type
-    report->addItemModel(querymodel_room,"myModel");
-    report->addTableView("myView",ui->tableView);
-    report->setConnectionID("gentoo");
+    //report->addItemModel(querymodel_room,"myModel");
     report->setReportFile("/home/xdien/ProjectsQT/qlsv_ktx/lietkeDSSV.ncr"); //set the report filename fullpath or relative to dir
     report->runReportToPreview(); // run to preview output
     //report->dataSource()
