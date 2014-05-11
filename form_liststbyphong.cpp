@@ -3,6 +3,7 @@
 #include "ncreport.h"
 #include "ncreportpreviewwindow.h"
 #include <QMessageBox>
+#include "config_sqlconnect.h"
 
 Form_listSTbyPhong::Form_listSTbyPhong(QWidget *parent) :
     QWidget(parent),
@@ -35,8 +36,6 @@ void Form_listSTbyPhong::on_pushButton_2_clicked()
     //report->addItemModel(querymodel_room,"myModel");
     report->setReportFile("/home/xdien/ProjectsQT/qlsv_ktx/lietkeDSSV.ncr"); //set the report filename fullpath or relative to dir
     report->runReportToPreview(); // run to preview output
-    //report->dataSource()
-
     // error handling
     if( report->hasError())
     {

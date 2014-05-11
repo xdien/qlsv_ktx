@@ -40,10 +40,6 @@ private slots:
     void keyPressEvent(QKeyEvent *e);
     void keyReleaseEvent(QKeyEvent *);
 
-    void on_tableView_listtable_doubleClicked(const QModelIndex &index);
-
-    void on_actionRefesh_triggered();
-
     void on_pushButton_3_clicked();
 
     void on_comboBox_tp_currentIndexChanged(int index);
@@ -66,6 +62,18 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_action_i_t_ng_m_i_triggered();
+
+    void on_actionPh_ng_m_i_triggered();
+
+    void on_actionL_p_triggered();
+
+    void on_lineEdit_textChanged(const QString &arg1);
+
+    void on_treeView_thanhtoan_clicked(const QModelIndex &index);
+
+    void on_pushButton_5_clicked();
+
 private:
     void loadpage();
     Ui::MainWindow *ui;
@@ -75,6 +83,7 @@ private:
     QModelIndex clickidxSV;
     int tempint;
     QSqlQuery newq;
+    QSqlQueryModel *newqm;
     QString thuocdiachi(QString nhapvao);
     QString gomdiachi(QComboBox *b1, QComboBox *b2, QComboBox *b3);
     //set combobox

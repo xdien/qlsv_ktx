@@ -31,19 +31,19 @@ left join SINH_VIEN on SINH_VIEN.mssv = HOP_DONG.mssv</datasource>
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Serif'; font-size:14pt;&quot;&gt;Danh sách sinh viên theo phòng&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</text>
-        <label id="1GSVP" zValue="5" posX="0.000" posY="46.037" width="31.750" height="4.762" fontName="Arial" fontSize="10" bgMode="fb" backcolor="#a0a0a4">Phòng</label>
-        <label id="KZCJJ" zValue="6" posX="47.625" posY="46.037" width="31.750" height="4.762" fontName="Arial" fontSize="10" bgMode="fb" backcolor="#c0c0c0">Tên sinh viên</label>
-        <label id="BTXM8" zValue="7" posX="84.137" posY="46.037" width="31.750" height="4.762" fontName="Arial" fontSize="10" bgMode="fb" backcolor="#c0c0c0">Mã số sinh viên</label>
-        <label id="IVUEJ" zValue="8" posX="125.412" posY="46.037" width="35.983" height="4.762" fontName="Arial" fontSize="10" bgMode="fb" backcolor="#c0c0c0">Thời gian hết hợp đồng</label>
+        <label id="1GSVP" zValue="1" posX="0.000" posY="46.037" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1" bgMode="fb" backcolor="#a0a0a4">Phòng</label>
+        <label id="KZCJJ" zValue="2" posX="47.625" posY="46.037" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1" bgMode="fb" backcolor="#c0c0c0">Tên sinh viên</label>
+        <label id="BTXM8" zValue="3" posX="84.137" posY="46.037" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1" bgMode="fb" backcolor="#c0c0c0">Mã số sinh viên</label>
+        <label id="IVUEJ" zValue="4" posX="125.412" posY="46.037" width="35.983" height="4.762" fontName="Arial" fontSize="10" alignment="1" bgMode="fb" backcolor="#c0c0c0">Thời gian hết hợp đồng</label>
     </pageheader>
     <pagefooter id="PF" height="40.481"/>
     <details>
         <detail id="Detail1" height="5.821" datasource="DataSource2">
             <items>
-                <field id="46JJZ" typeId="131074" zValue="7" posX="85.725" posY="0.000" width="31.750" height="4.762" description="mssv" resource="datasource" fontName="Arial" fontSize="10" type="txt" ftype="ds">DataSource2.mssv</field>
-                <field id="96G74" zValue="9" posX="47.625" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" type="txt" ftype="ds">DataSource2.ho_ten</field>
-                <field id="SYJ36" zValue="10" posX="0.000" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" type="txt" ftype="ds">DataSource2.ma_phong</field>
-                <field id="TBZNG" zValue="11" posX="125.412" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" type="txt" ftype="ds">DataSource2.tg_hd</field>
+                <field id="46JJZ" typeId="131074" zValue="0" posX="85.725" posY="0.000" width="31.750" height="4.762" description="mssv" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource2.mssv</field>
+                <field id="96G74" zValue="1" posX="47.625" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource2.ho_ten</field>
+                <field id="SYJ36" zValue="2" posX="0.000" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource2.ma_phong</field>
+                <field id="TBZNG" zValue="3" posX="125.412" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource2.tg_hd</field>
             </items>
         </detail>
     </details>

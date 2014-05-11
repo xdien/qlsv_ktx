@@ -153,21 +153,12 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
      }
 }
 
-
-void MainWindow::on_tableView_listtable_doubleClicked(const QModelIndex &index)
-{
-    QString table_name;
-    table_name = listmoi.model->data(index).toString();
-    editDatatable tabblenew(NULL,table_name);
-    tabblenew.exec();
-}
-
 //tao ham loadpage
 void MainWindow::loadpage()
 {
     //table1.model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->listView_sv->setModel(table1.model);
-    ui->tableView_listtable->setModel(listmoi.model);
+    //ui->tableView_listtable->setModel(listmoi.model);
     QSqlQuery query;
     QString val1, val2;
     query.exec("select * from DOI_TUONG");
@@ -193,11 +184,6 @@ void MainWindow::loadpage()
     {
         ui->comboBox_tp->addItem(query.value(1).toString(),query.value(0).toString());
     }
-}
-
-void MainWindow::on_actionRefesh_triggered()
-{
-    this->loadpage();
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -484,4 +470,108 @@ void MainWindow::on_pushButton_4_clicked()
         pv->exec();  // run like modal dialog
     }
     delete report;
+}
+
+void MainWindow::on_action_i_t_ng_m_i_triggered()
+{
+    editDatatable dtmoi(NULL,"DOI_TUONG");
+    dtmoi.exec();
+}
+
+void MainWindow::on_actionPh_ng_m_i_triggered()
+{
+    editDatatable phongmoi(NULL,"PHONG");
+    phongmoi.exec();
+}
+
+void MainWindow::on_actionL_p_triggered()
+{
+    editDatatable lop(NULL,"LOP");
+    lop.exec();
+}
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    newqm = new QSqlQueryModel();
+    newqm->setQuery("select mssv,ngay from PT_TIEN_TRO " \
+                    "where mssv like '%"+arg1+"%' order by ngay desc");
+    ui->treeView_thanhtoan->setModel(newqm);
+}
+
+
+void MainWindow::on_treeView_thanhtoan_clicked(const QModelIndex &index)
+{
+
+    newq.exec("select * from PT_TIEN_TRO "\
+              "left join HOP_DONG "\
+              "on PT_TIEN_TRO.mssv = HOP_DONG.mssv "\
+              "left join SINH_VIEN "\
+              "on SINH_VIEN.mssv = PT_TIEN_TRO.mssv where PT_TIEN_TRO.mssv= '"+index.sibling(index.row(),0).data().toString()+"' "\
+              "and PT_TIEN_TRO.ngay = '"+index.sibling(index.row(),1).data().toString()+"'");
+    if(newq.next())
+    {
+        ui->label_ten->setText(newq.value(13).toString());
+        ui->spinBox_PHONG->setValue(newq.value(7).toInt());
+        ui->spinBox_DIEN->setValue(newq.value(3).toInt());
+        ui->spinBox_NUOC->setValue(newq.value(4).toInt());
+        ui->dateEdit_quy->setDate(newq.value(5).toDate());
+        //tinh gia dien va nuoc; dien = 3000/kw nuoc = 5000/m3
+        ui->lineEdit_TIENDIEN->setText(QString::number(newq.value(3).toInt()*3000));
+        ui->lineEdit_TIENNUOC->setText(QString::number(newq.value(4).toInt()*5000));
+        //tinh tong tien tro dien+nuoc+tro
+        tempint = ui->lineEdit_TIENDIEN->text().toInt()+ ui->lineEdit_TIENNUOC->text().toInt() + ui->spinBox_tientro->value();
+        ui->label_tien->setText(QString::number(tempint));
+
+    }
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    if(0==1){
+    NCReport *report = new NCReport();
+    report->setReportSource( NCReportSource::File ); // set report source type
+    report->setReportFile("/home/xdien/ProjectsQT/qlsv_ktx/pttientro.ncr"); //set the report filename fullpath or relative to dir
+    QString tam;
+    tam = "select * from PT_TIEN_TRO "\
+            "left join HOP_DONG "\
+            "on PT_TIEN_TRO.mssv = HOP_DONG.mssv "\
+            "left join SINH_VIEN "\
+            "on SINH_VIEN.mssv = PT_TIEN_TRO.mssv where PT_TIEN_TRO.mssv= '"+ui->treeView_thanhtoan->currentIndex().sibling(ui->treeView_thanhtoan->currentIndex().row(),0).data().toString()+"' "\
+            "and PT_TIEN_TRO.ngay = '"+ui->treeView_thanhtoan->currentIndex().sibling(ui->treeView_thanhtoan->currentIndex().row(),0).data().toString()+"'";
+    report->addParameter("ten", ui->label_ten->text());
+    report->addParameter("mssv",ui->comboBoxSV_tabHD->itemData(ui->comboBoxSV_tabHD->currentIndex()));
+    qDebug()<< newq.exec("select * from SINH_VIEN where mssv = '"+ui->comboBoxSV_tabHD->itemData(ui->comboBoxSV_tabHD->currentIndex()).toString()+"'");
+    if(newq.next())
+    {
+        report->addParameter("img_path",newq.value(6));
+        report->addParameter("lop",newq.value(1));
+        report->addParameter("phong",ui->comboBoxPhong_tabHD->currentText());
+        report->addParameter("thoihan",ui->dateEdit_thoihan->date().toString("dd/MM/yyyy"));
+    }
+    report->runReportToPreview(); // run to preview output
+    //report->dataSource()
+
+    // error handling
+    if( report->hasError())
+    {
+        QMessageBox msgBox;
+        msgBox.setText(QObject::tr("Report error: ") + report->lastErrorMsg());
+        msgBox.exec();
+    }
+    else
+    {
+        // show preview
+        NCReportPreviewWindow *pv = new NCReportPreviewWindow();    // create preview window
+        pv->setOutput( (NCReportPreviewOutput*)report->output() );  // add output to the window
+        pv->setReport(report);
+        pv->setWindowModality(Qt::ApplicationModal );    // set modality
+        pv->setAttribute( Qt::WA_DeleteOnClose );    // set attrib
+        pv->exec();  // run like modal dialog
+    }
+    delete report;
+    }
+    else
+    {
+        qDebug()<<ui->treeView_thanhtoan->currentIndex().sibling(ui->treeView_thanhtoan->currentIndex().row(),0).data().toString();
+    }
 }

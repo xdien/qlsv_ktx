@@ -30,7 +30,7 @@
        <string notr="true">border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(245, 224, 176, 255), stop:0.09 rgba(246, 189, 237, 255), stop:0.14 rgba(194, 207, 246, 255), stop:0.19 rgba(184, 160, 168, 255), stop:0.25 rgba(171, 186, 248, 255), stop:0.32 rgba(243, 248, 224, 255), stop:0.385 rgba(249, 162, 183, 255), stop:0.47 rgba(100, 115, 124, 255), stop:0.58 rgba(251, 205, 202, 255), stop:0.65 rgba(170, 128, 185, 255), stop:0.75 rgba(252, 222, 204, 255), stop:0.805 rgba(206, 122, 218, 255), stop:0.86 rgba(254, 223, 175, 255), stop:0.91 rgba(254, 236, 244, 255), stop:1 rgba(255, 191, 221, 255));</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -338,30 +338,6 @@
           <item>
            <widget class="QTreeView" name="treeView"/>
           </item>
-          <item>
-           <layout class="QFormLayout" name="formLayout_6">
-            <item row="0" column="0">
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="0" column="1">
-             <widget class="QPushButton" name="pushButton_2">
-              <property name="text">
-               <string>PushButton</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
          </layout>
         </item>
         <item>
@@ -508,11 +484,197 @@
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>Quản lý dữ liệu</string>
+        <string>Thanh toán tiền trọ</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QTableView" name="tableView_listtable"/>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QTreeView" name="treeView_thanhtoan">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_3">
+          <property name="title">
+           <string>GroupBox</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <layout class="QFormLayout" name="formLayout_8">
+             <item row="0" column="1">
+              <widget class="QLabel" name="label_ten">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_21">
+               <property name="text">
+                <string>Phòng ở</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QSpinBox" name="spinBox_PHONG">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_20">
+               <property name="text">
+                <string>Tên sinh viên</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_22">
+               <property name="text">
+                <string>TT điện</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="spinBox_DIEN">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="maximum">
+                <number>99999</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLabel" name="label_24">
+               <property name="text">
+                <string>Thành tiền</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QLineEdit" name="lineEdit_TIENDIEN">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_23">
+               <property name="text">
+                <string>TT nước</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QSpinBox" name="spinBox_NUOC">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="maximum">
+                <number>999999</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLabel" name="label_25">
+               <property name="text">
+                <string>Thành tiền</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QLineEdit" name="lineEdit_TIENNUOC">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_26">
+               <property name="text">
+                <string>Tiền trọ</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="spinBox_tientro">
+               <property name="maximum">
+                <number>999999999</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_27">
+               <property name="text">
+                <string>Ngày(ky)</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QDateEdit" name="dateEdit_quy"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_28">
+               <property name="text">
+                <string>Tổng tiền</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="label_tien">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                 <underline>true</underline>
+                 <strikeout>false</strikeout>
+                </font>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_5">
+             <property name="text">
+              <string>In phiếu thu tền trọ</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -530,7 +692,6 @@
    <addaction name="actionTim_kiem"/>
    <addaction name="actionXemtheophong"/>
    <addaction name="actionCai_dat"/>
-   <addaction name="actionRefesh"/>
    <addaction name="actionThoat"/>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -547,7 +708,6 @@
      <string>Thêm</string>
     </property>
     <addaction name="action_i_t_ng_m_i"/>
-    <addaction name="actionKhoa_m_i"/>
     <addaction name="actionPh_ng_m_i"/>
     <addaction name="actionT_i_s_n"/>
     <addaction name="actionL_p"/>
@@ -573,7 +733,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="libIcons.qrc">
      <normaloff>:/newPrefix/lib-icons/Windows Icons/exit.png</normaloff>:/newPrefix/lib-icons/Windows Icons/exit.png</iconset>
    </property>
    <property name="text">
@@ -585,7 +745,7 @@
   </action>
   <action name="actionCai_dat">
    <property name="icon">
-    <iconset>
+    <iconset resource="libIcons.qrc">
      <normaloff>:/newPrefix/lib-icons/Windows Icons/Gear.ico</normaloff>:/newPrefix/lib-icons/Windows Icons/Gear.ico</iconset>
    </property>
    <property name="text">
@@ -597,7 +757,7 @@
   </action>
   <action name="actionTim_kiem">
    <property name="icon">
-    <iconset>
+    <iconset resource="libIcons.qrc">
      <normaloff>:/newPrefix/lib-icons/Windows Icons/Magnifying Glass.ico</normaloff>:/newPrefix/lib-icons/Windows Icons/Magnifying Glass.ico</iconset>
    </property>
    <property name="text">
@@ -605,18 +765,6 @@
    </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tìm sinh viên theo mã số&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </action>
-  <action name="actionRefesh">
-   <property name="icon">
-    <iconset>
-     <normaloff>:/newPrefix/lib-icons/Windows Icons/Twitter Retweet.ico</normaloff>:/newPrefix/lib-icons/Windows Icons/Twitter Retweet.ico</iconset>
-   </property>
-   <property name="text">
-    <string>refesh</string>
-   </property>
-   <property name="toolTip">
-    <string>Lam moi csdl</string>
    </property>
   </action>
   <action name="action_i_t_ng">
@@ -651,7 +799,7 @@
   </action>
   <action name="actionXemtheophong">
    <property name="icon">
-    <iconset>
+    <iconset resource="libIcons.qrc">
      <normaloff>:/newPrefix/lib-icons/Badges/dorm.gif</normaloff>:/newPrefix/lib-icons/Badges/dorm.gif</iconset>
    </property>
    <property name="text">
@@ -690,10 +838,9 @@
   <tabstop>lineEdit_diachi</tabstop>
   <tabstop>comboBox_lopSv</tabstop>
   <tabstop>pushButton</tabstop>
-  <tabstop>tableView_listtable</tabstop>
-  <tabstop>tabWidget</tabstop>
-  <tabstop>pushButton_2</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="libIcons.qrc"/>
+ </resources>
  <connections/>
 </ui>
