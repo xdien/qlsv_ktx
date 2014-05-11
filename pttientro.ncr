@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NCReport version="2.12.0" name="Untitled" type="report">
+    <options>
+        <encoding>UTF-8</encoding>
+        <language>00</language>
+        <langrole>0</langrole>
+        <orientation>portrait</orientation>
+        <pagesize width="210.000" height="297.000">A4</pagesize>
+        <topmargin>15</topmargin>
+        <bottommargin>15</bottommargin>
+        <leftmargin>20</leftmargin>
+        <rightmargin>20</rightmargin>
+        <fontname>Arial</fontname>
+        <fontsize>10</fontsize>
+        <backcolor>#ffffff</backcolor>
+        <columns>0</columns>
+        <columnspace>0</columnspace>
+        <zoneSpacing>0</zoneSpacing>
+        <zoneBreak>false</zoneBreak>
+        <htmlBodyStyle>{DEFAULT}</htmlBodyStyle>
+    </options>
+    <datasources>
+        <datasource id="ttphieuthu" type="sql" openRole="begin" source="static" connection="external" parentID="" connID="gentoo" host="gentoo" database="db_ktx" user="xdien" password="123456" port="" driver="QMYSQL">select * from PT_TIEN_TRO</datasource>
+    </datasources>
+    <variables/>
+    <pageheader id="PH" height="133.350">
+        <text id="5F1NO" zValue="0" posX="0.000" posY="0.000" width="169.862" height="9.525" useFont="true" fontName="Arial" fontSize="10" forecolor="#000000">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Phiếu thu tiền trọ&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</text>
+        <field id="YS7U7" typeId="131074" zValue="1" posX="134.938" posY="17.462" width="31.750" height="4.762" resource="sysvar" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="sys">date</field>
+        <label id="9Z4Q9" zValue="2" posX="96.837" posY="17.462" width="36.512" height="4.762" fontName="Arial" fontSize="10" alignment="1">Đại học cần thơ ,ngày:</label>
+        <label id="GQU4C" zValue="3" posX="11.112" posY="44.450" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Tên sinh viên:</label>
+        <label id="69RNC" zValue="4" posX="11.112" posY="50.800" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Mã số phòng</label>
+        <label id="WM53G" zValue="5" posX="11.112" posY="57.150" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Kỳ(quý):</label>
+        <label id="OL79Q" zValue="6" posX="11.112" posY="63.500" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Chỉ sô tiêu thụ điện</label>
+        <label id="ZEOGU" zValue="7" posX="92.075" posY="63.500" width="19.050" height="4.762" fontName="Arial" fontSize="10" alignment="1">Thành tiền</label>
+        <label id="BXK51" zValue="8" posX="11.112" posY="69.850" width="32.015" height="4.762" fontName="Arial" fontSize="10" alignment="1">Chỉ sô tiêu thụ nước</label>
+        <label id="CBA4Z" zValue="9" posX="92.075" posY="69.850" width="19.050" height="4.762" fontName="Arial" fontSize="10" alignment="1">Thành tiền</label>
+        <label id="MG17Z" zValue="10" posX="11.112" posY="76.200" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Tiền trọ hàng tháng</label>
+        <label id="QGDYP" zValue="11" posX="11.112" posY="82.550" width="34.925" height="4.762" fontName="Arial" fontSize="10" alignment="1">Tổng số tiền phải trả</label>
+        <field id="3XJRE" typeId="131074" zValue="12" posX="47.625" posY="57.150" width="31.750" height="4.762" description="ngay" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">ttphieuthu.ngay</field>
+        <field id="D2BD7" typeId="131074" zValue="13" posX="47.625" posY="63.500" width="31.750" height="4.762" description="cstt_dien" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">ttphieuthu.cstt_dien</field>
+        <field id="SPZ29" typeId="131074" zValue="14" posX="47.625" posY="69.850" width="31.750" height="4.762" description="cstt_nuoc" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">ttphieuthu.cstt_nuoc</field>
+        <field id="E4PVS" zValue="15" posX="47.625" posY="50.800" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">lop</field>
+        <field id="4C7W4" zValue="16" posX="47.625" posY="44.450" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">teten</field>
+        <field id="AA5S5" typeId="131074" zValue="17" posX="47.625" posY="76.200" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" forecolor="#000000" type="txt" ftype="par">ttthang</field>
+        <field id="RPG6J" typeId="131074" zValue="18" posX="47.625" posY="82.550" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" forecolor="#000000" type="txt" ftype="par">tongTien</field>
+        <field id="809FL" typeId="131074" zValue="19" posX="114.300" posY="63.500" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">tien_dien</field>
+        <field id="HMO7F" typeId="131074" zValue="20" posX="114.300" posY="69.850" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">tien_nuoc</field>
+    </pageheader>
+    <pagefooter id="PF" height="38.100">
+        <label id="SSFWJ" zValue="0" posX="120.650" posY="3.175" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Cán bộ thu ký tên</label>
+    </pagefooter>
+    <details>
+        <detail id="Detail1" height="0.000" datasource="ttphieuthu">
+            <items/>
+        </detail>
+    </details>
+</NCReport>
