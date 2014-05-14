@@ -30,7 +30,7 @@
        <string notr="true">border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(245, 224, 176, 255), stop:0.09 rgba(246, 189, 237, 255), stop:0.14 rgba(194, 207, 246, 255), stop:0.19 rgba(184, 160, 168, 255), stop:0.25 rgba(171, 186, 248, 255), stop:0.32 rgba(243, 248, 224, 255), stop:0.385 rgba(249, 162, 183, 255), stop:0.47 rgba(100, 115, 124, 255), stop:0.58 rgba(251, 205, 202, 255), stop:0.65 rgba(170, 128, 185, 255), stop:0.75 rgba(252, 222, 204, 255), stop:0.805 rgba(206, 122, 218, 255), stop:0.86 rgba(254, 223, 175, 255), stop:0.91 rgba(254, 236, 244, 255), stop:1 rgba(255, 191, 221, 255));</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -56,7 +56,7 @@
           <item>
            <widget class="QPushButton" name="pushButton_dlsv">
             <property name="text">
-             <string>Delete</string>
+             <string>Xóa</string>
             </property>
            </widget>
           </item>
@@ -158,6 +158,13 @@
                </item>
                <item row="5" column="1">
                 <widget class="QDateEdit" name="dateEdit_ngaysinh">
+                 <property name="date">
+                  <date>
+                   <year>1992</year>
+                   <month>1</month>
+                   <day>1</day>
+                  </date>
+                 </property>
                  <property name="displayFormat">
                   <string>dd/MM/yyyy</string>
                  </property>
@@ -254,7 +261,7 @@
              <item row="3" column="0">
               <widget class="QLabel" name="label_6">
                <property name="text">
-                <string>Thêm chi tiêt</string>
+                <string>Thêm chi tiết</string>
                </property>
               </widget>
              </item>
@@ -319,7 +326,7 @@
               <string notr="true">background-color: rgb(170, 170, 127);</string>
              </property>
              <property name="text">
-              <string>Luu</string>
+              <string>Lưu</string>
              </property>
             </widget>
            </item>
@@ -330,7 +337,7 @@
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
-        <string>Các hợp đồng KTX</string>
+        <string>Hợp đồng KTX</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
@@ -360,39 +367,25 @@
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
             <layout class="QGridLayout" name="gridLayout">
-             <item row="1" column="1">
+             <item row="0" column="1">
               <widget class="QComboBox" name="comboxLop_tabHopdong"/>
              </item>
-             <item row="1" column="0">
+             <item row="0" column="0">
               <widget class="QLabel" name="label_10">
                <property name="text">
                 <string>Lớp</string>
                </property>
               </widget>
              </item>
-             <item row="3" column="0">
+             <item row="2" column="0">
               <widget class="QLabel" name="label_9">
                <property name="text">
                 <string>Tên SV</string>
                </property>
               </widget>
              </item>
-             <item row="3" column="1">
+             <item row="2" column="1">
               <widget class="QComboBox" name="comboBoxSV_tabHD"/>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLineEdit" name="lineEdit_mahd">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label">
-               <property name="text">
-                <string>Mã hợp đồng</string>
-               </property>
-              </widget>
              </item>
             </layout>
            </item>
@@ -442,6 +435,13 @@
              </item>
              <item row="1" column="1">
               <widget class="QDateEdit" name="dateEdit_thoihan">
+               <property name="date">
+                <date>
+                 <year>2015</year>
+                 <month>1</month>
+                 <day>1</day>
+                </date>
+               </property>
                <property name="displayFormat">
                 <string>dd/MM/yyyy</string>
                </property>
@@ -514,7 +514,7 @@
         <item>
          <widget class="QGroupBox" name="groupBox_3">
           <property name="title">
-           <string>GroupBox</string>
+           <string>Thông tin thanh toán</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_7">
            <item>
@@ -634,12 +634,20 @@
              <item row="1" column="0">
               <widget class="QLabel" name="label_27">
                <property name="text">
-                <string>Ngày(ky)</string>
+                <string>Kỳ</string>
                </property>
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QDateEdit" name="dateEdit_quy"/>
+              <widget class="QDateEdit" name="dateEdit_quy">
+               <property name="date">
+                <date>
+                 <year>2014</year>
+                 <month>1</month>
+                 <day>1</day>
+                </date>
+               </property>
+              </widget>
              </item>
              <item row="2" column="0">
               <widget class="QLabel" name="label_28">
@@ -723,6 +731,9 @@
      <string>Báo cáo</string>
     </property>
     <addaction name="actionDanh_s_ch_SV_theo_phong"/>
+    <addaction name="actionTh_ng_k_theo_ti_nh_tha_nh"/>
+    <addaction name="actionKhoa"/>
+    <addaction name="actionTheo_nga_nh"/>
    </widget>
    <addaction name="menuExit"/>
    <addaction name="menuS_a_i_t_ng"/>
@@ -800,7 +811,7 @@
   <action name="actionXemtheophong">
    <property name="icon">
     <iconset resource="libIcons.qrc">
-     <normaloff>:/newPrefix/lib-icons/Badges/dorm.gif</normaloff>:/newPrefix/lib-icons/Badges/dorm.gif</iconset>
+     <normaloff>:/newPrefix/lib-icons/Windows Icons/Door.ico</normaloff>:/newPrefix/lib-icons/Windows Icons/Door.ico</iconset>
    </property>
    <property name="text">
     <string>xemtheophong</string>
@@ -811,7 +822,25 @@
   </action>
   <action name="actionDanh_s_ch_SV_theo_phong">
    <property name="text">
-    <string>Danh sách SV theo phòng</string>
+    <string>Theo phòng</string>
+   </property>
+  </action>
+  <action name="actionTh_ng_k_theo_ti_nh_tha_nh">
+   <property name="text">
+    <string>Theo tỉnh/ thành</string>
+   </property>
+   <property name="toolTip">
+    <string>Báo cáo theo tỉnh thành phố</string>
+   </property>
+  </action>
+  <action name="actionKhoa">
+   <property name="text">
+    <string>Khoa</string>
+   </property>
+  </action>
+  <action name="actionTheo_nga_nh">
+   <property name="text">
+    <string>Theo ngành</string>
    </property>
   </action>
  </widget>
@@ -820,7 +849,6 @@
   <tabstop>treeView</tabstop>
   <tabstop>comboxLop_tabHopdong</tabstop>
   <tabstop>comboBoxSV_tabHD</tabstop>
-  <tabstop>lineEdit_mahd</tabstop>
   <tabstop>comboBoxPhong_tabHD</tabstop>
   <tabstop>dateEdit_ngadk</tabstop>
   <tabstop>dateEdit_thoihan</tabstop>

@@ -24,7 +24,9 @@ SOURCES += main.cpp\
     editdatatable.cpp \
     dialog_suadt.cpp \
     add_lop.cpp \
-    form_liststbyphong.cpp
+    form_liststbyphong.cpp \
+    dialog_chontp.cpp \
+    dialog_chonkhoa.cpp
 
 HEADERS  += mainwindow.h \
     dialog_chitietsv.h \
@@ -36,7 +38,9 @@ HEADERS  += mainwindow.h \
     editdatatable.h \
     dialog_suadt.h \
     add_lop.h \
-    form_liststbyphong.h
+    form_liststbyphong.h \
+    dialog_chontp.h \
+    dialog_chonkhoa.h
 
 FORMS    += mainwindow.ui \
     dialog_chitietsv.ui \
@@ -45,7 +49,9 @@ FORMS    += mainwindow.ui \
     editdatatable.ui \
     dialog_suadt.ui \
     add_lop.ui \
-    form_liststbyphong.ui
+    form_liststbyphong.ui \
+    dialog_chontp.ui \
+    dialog_chonkhoa.ui
 
 RESOURCES += \
     libIcons.qrc

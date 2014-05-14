@@ -10,6 +10,8 @@
 #include "ncreport.h"
 #include "ncreportpreviewwindow.h"
 #include "dialog_suadt.h"
+#include "dialog_chontp.h"
+#include "dialog_chonkhoa.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -48,26 +50,48 @@ void MainWindow::on_pushButton_clicked()
             if(reply == QMessageBox::Yes)
             {
                 tempst1 = "update SINH_VIEN set ten_lop = '"+ui->comboBox_lopSv->itemText(ui->comboBox_lopSv->currentIndex())+"',ho_ten = '"+ui->lineEdit_hotenSV->text()+"', sdt='" \
-                        +ui->lineEdit_sdtSV->text()+"', gioi_tinh = '"+QString::number(tempint)+"', img_path ='"+linkimg+"' where " \
+                        +ui->lineEdit_sdtSV->text()+"', gioi_tinh = '"+QString::number(tempint)+"', ngay_sinh='"+ui->dateEdit_ngaysinh->date().toString("yyyy-MM-dd")+"', img_path ='"+linkimg+"' where " \
                         "mssv='"+tempst+"'";
                 if(!truyvanmoi.exec(tempst1))
                     qDebug()<<truyvanmoi.lastError().text();
                 //cap nhat lai dia chi
                 newq.exec("delete from DC_CUASV where mssv = '"+tempst+"'");
-                tempst1 = "insert into DC_CUASV(`mssv`,`ma` ,`chitiet`) values ('"+tempst+"', '"+this->gomdiachi(ui->comboBox_tp,ui->comboBox_qh,ui->comboBox_xp)+"', '"+ui->lineEdit_diachi->text()+"')";
-                newq.exec(tempst1);
+                //neu ward rong
+                if(ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString().isEmpty())
+                {
+                    //neu province rong
+                    if(!ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString().isEmpty())
+                    newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"',NULL,'"\
+                              +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_qh->currentIndex()).toString()+"')");
+                    else
+                        newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"',NULL,NULL"\
+                                 ",'"+ui->comboBox_tp->itemData(ui->comboBox_qh->currentIndex()).toString()+"')");
+                }
+                else
+                    newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"','"+ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString()+"','"\
+                          +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"')");
             }
+            qDebug()<<newq.lastError().text();
         }
         else{
             tempst1 = "insert into SINH_VIEN values ('" +ui->lineEdit_mssvSV->text()+"','"+ui->comboBox_lopSv->itemText(ui->comboBox_lopSv->currentIndex())+"','"+ui->lineEdit_hotenSV->text()+"','" \
                     +ui->lineEdit_sdtSV->text()+"', '"+QString::number(tempint)+"','"+ui->dateEdit_ngaysinh->date().toString("yyyy-MM-dd")+"','"+linkimg+"')";
-            qDebug()<<"them sv moi"<<tempst1;
             if(truyvanmoi.exec(tempst1))
                 qDebug()<< truyvanmoi.lastError().text();
-            tempst1 = "insert into DC_CUASV(`mssv`,`ma` ,`chitiet`) values ('"+tempst+"', '"+this->gomdiachi(ui->comboBox_tp,ui->comboBox_qh,ui->comboBox_xp)+"', '"+ui->lineEdit_diachi->text()+"')";
-            newq.exec(tempst1);
-            qDebug()<< newq.lastError().text();
-            qDebug()<<newq.lastQuery();
+            //
+            if(ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString().isEmpty())
+            {
+                //neu province rong
+                if(!ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString().isEmpty())
+                newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"',NULL,'"\
+                          +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_qh->currentIndex()).toString()+"')");
+                else
+                    newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"',NULL,NULL"\
+                             ",'"+ui->comboBox_tp->itemData(ui->comboBox_qh->currentIndex()).toString()+"')");
+            }
+            else
+                newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"','"+ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString()+"',"\
+                      +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"')");
             table1.model->select();
         }
     }
@@ -342,6 +366,46 @@ void MainWindow::setcombobox(QString madc)
         break;
     }
     }
+    /*
+    ui->comboBox_qh->clear();
+    ui->comboBox_xp->clear();
+    oldc.exec("select * from DC_CUASV where mssv = '"+mssv+"'");
+    if(oldc.next())
+    {
+           ui->comboBox_tp->setCurrentIndex(ui->comboBox_tp->findData(oldc.value(4).toString()));
+           //set quan huyen
+           if(!oldc.value(3).isNull())
+           {
+               qDebug()<<"qh khong rong";
+                newq.exec("select * from district where provinceid ='"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"'");
+                while (newq.next()) {
+                    ui->comboBox_qh->addItem(newq.value(1).toString(),newq.value(0));
+                }
+                QString qh;
+                qh = oldc.value(3).toString();
+                qDebug()<<qh<<ui->comboBox_qh->findData(oldc.value(3).toString(),);
+                ui->comboBox_qh->setCurrentIndex(2);*/
+                //set xa phuong
+                /*if(!oldc.value(2).isNull())
+                {
+                    newq.exec("select * from ward where districtid ='"+ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"'");
+                    while(newq.next())
+                    {
+                        ui->comboBox_xp->addItem(newq.value(1).toString(),newq.value(0));
+                    }
+
+                    ui->comboBox_xp->setCurrentIndex(ui->comboBox_xp->findData(oldc.value(2).toString()));
+                }
+                else
+                {
+                    ui->comboBox_xp->setCurrentIndex(-1);
+                }*/
+           /*}
+           else
+           {
+               ui->comboBox_qh->setCurrentIndex(-1);
+           }
+    }*/
 }
 
 void MainWindow::on_tabWidget_currentChanged(int index)
@@ -410,8 +474,22 @@ void MainWindow::loadtabSV(const QModelIndex &index)
         if(newq.next())
         {
             ui->lineEdit_diachi->clear();
-            ui->lineEdit_diachi->setText(newq.value(2).toString());
-            setcombobox(newq.value(1).toString());
+            ui->lineEdit_diachi->setText(newq.value(1).toString());
+            if(newq.value(3).isNull())
+            {
+                setcombobox(newq.value(4).toString());
+            }
+            else
+            {
+                if(newq.value(2).isNull())
+                {
+                    setcombobox(newq.value(3).toString());
+                }
+                else
+                {
+                    setcombobox(newq.value(2).toString());
+                }
+            }
         }
     }
     clickidxSV = index;
@@ -474,19 +552,19 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::on_action_i_t_ng_m_i_triggered()
 {
-    editDatatable dtmoi(NULL,"DOI_TUONG");
+    editDatatable dtmoi(this,"DOI_TUONG");
     dtmoi.exec();
 }
 
 void MainWindow::on_actionPh_ng_m_i_triggered()
 {
-    editDatatable phongmoi(NULL,"PHONG");
+    editDatatable phongmoi(this,"PHONG");
     phongmoi.exec();
 }
 
 void MainWindow::on_actionL_p_triggered()
 {
-    editDatatable lop(NULL,"LOP");
+    editDatatable lop(this,"LOP");
     lop.exec();
 }
 
@@ -538,18 +616,8 @@ void MainWindow::on_pushButton_5_clicked()
             "left join SINH_VIEN "\
             "on SINH_VIEN.mssv = PT_TIEN_TRO.mssv where PT_TIEN_TRO.mssv= '"+ui->treeView_thanhtoan->currentIndex().sibling(ui->treeView_thanhtoan->currentIndex().row(),0).data().toString()+"' "\
             "and PT_TIEN_TRO.ngay = '"+ui->treeView_thanhtoan->currentIndex().sibling(ui->treeView_thanhtoan->currentIndex().row(),0).data().toString()+"'";
-    report->addParameter("ten", ui->label_ten->text());
-    report->addParameter("mssv",ui->comboBoxSV_tabHD->itemData(ui->comboBoxSV_tabHD->currentIndex()));
-    qDebug()<< newq.exec("select * from SINH_VIEN where mssv = '"+ui->comboBoxSV_tabHD->itemData(ui->comboBoxSV_tabHD->currentIndex()).toString()+"'");
-    if(newq.next())
-    {
-        report->addParameter("img_path",newq.value(6));
-        report->addParameter("lop",newq.value(1));
-        report->addParameter("phong",ui->comboBoxPhong_tabHD->currentText());
-        report->addParameter("thoihan",ui->dateEdit_thoihan->date().toString("dd/MM/yyyy"));
-    }
+
     report->runReportToPreview(); // run to preview output
-    //report->dataSource()
 
     // error handling
     if( report->hasError())
@@ -574,4 +642,49 @@ void MainWindow::on_pushButton_5_clicked()
     {
         qDebug()<<ui->treeView_thanhtoan->currentIndex().sibling(ui->treeView_thanhtoan->currentIndex().row(),0).data().toString();
     }
+}
+
+void MainWindow::on_actionT_i_s_n_triggered()
+{
+    editDatatable tsmoi(this,"TAI_SAN");
+    tsmoi.exec();
+}
+
+void MainWindow::on_actionDanh_s_ch_SV_theo_phong_triggered()
+{
+    NCReport *report = new NCReport();
+    report->setReportSource( NCReportSource::File ); // set report source type
+    //report->addItemModel(querymodel_room,"myModel");
+    report->setReportFile("/home/xdien/ProjectsQT/qlsv_ktx/lietkeDSSV.ncr"); //set the report filename fullpath or relative to dir
+    report->runReportToPreview(); // run to preview output
+    // error handling
+    if( report->hasError())
+    {
+        QMessageBox msgBox;
+        msgBox.setText(QObject::tr("Report error: ") + report->lastErrorMsg());
+        msgBox.exec();
+    }
+    else
+    {
+        // show preview
+        NCReportPreviewWindow *pv = new NCReportPreviewWindow();    // create preview window
+        pv->setOutput( (NCReportPreviewOutput*)report->output() );  // add output to the window
+        pv->setReport(report);
+        pv->setWindowModality(Qt::ApplicationModal );    // set modality
+        pv->setAttribute( Qt::WA_DeleteOnClose );    // set attrib
+        pv->exec();  // run like modal dialog
+    }
+    delete report;
+}
+
+void MainWindow::on_actionTh_ng_k_theo_ti_nh_tha_nh_triggered()
+{
+    dialog_chonTP tinhtp;
+    tinhtp.exec();
+}
+
+void MainWindow::on_actionKhoa_triggered()
+{
+    dialog_chonKhoa chonkhoa(this);
+    chonkhoa.exec();
 }

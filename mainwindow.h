@@ -74,6 +74,14 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+    void on_actionT_i_s_n_triggered();
+
+    void on_actionDanh_s_ch_SV_theo_phong_triggered();
+
+    void on_actionTh_ng_k_theo_ti_nh_tha_nh_triggered();
+
+    void on_actionKhoa_triggered();
+
 private:
     void loadpage();
     Ui::MainWindow *ui;
@@ -82,7 +90,7 @@ private:
     QString tempst1,tempst2, linkimg, luumssv;
     QModelIndex clickidxSV;
     int tempint;
-    QSqlQuery newq;
+    QSqlQuery newq,oldc;
     QSqlQueryModel *newqm;
     QString thuocdiachi(QString nhapvao);
     QString gomdiachi(QComboBox *b1, QComboBox *b2, QComboBox *b3);
