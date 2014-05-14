@@ -62,10 +62,10 @@ void MainWindow::on_pushButton_clicked()
                     //neu province rong
                     if(!ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString().isEmpty())
                     newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"',NULL,'"\
-                              +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_qh->currentIndex()).toString()+"')");
+                              +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"')");
                     else
                         newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"',NULL,NULL"\
-                                 ",'"+ui->comboBox_tp->itemData(ui->comboBox_qh->currentIndex()).toString()+"')");
+                                 ",'"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"')");
                 }
                 else
                     newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"','"+ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString()+"','"\
@@ -84,10 +84,10 @@ void MainWindow::on_pushButton_clicked()
                 //neu province rong
                 if(!ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString().isEmpty())
                 newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"',NULL,'"\
-                          +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_qh->currentIndex()).toString()+"')");
+                          +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"')");
                 else
                     newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"',NULL,NULL"\
-                             ",'"+ui->comboBox_tp->itemData(ui->comboBox_qh->currentIndex()).toString()+"')");
+                             ",'"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"')");
             }
             else
                 newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"','"+ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString()+"',"\
@@ -286,23 +286,6 @@ QString MainWindow::thuocdiachi(QString nhapvao)
     default:
         return "provice";
         break;
-    }
-}
-//ham tra ve ma dia chi
-QString MainWindow::gomdiachi(QComboBox *b1, QComboBox *b2, QComboBox *b3)
-{
-    if(b3->currentText().isEmpty())
-    {
-        if(b2->currentText().isEmpty())
-        {
-            return b1->itemData(b1->currentIndex()).toString();
-        }
-        else {
-            return b2->itemData(b2->currentIndex()).toString();
-        }
-    }
-    else {
-        return b3->itemData(b3->currentIndex()).toString();
     }
 }
 
