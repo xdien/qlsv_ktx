@@ -35,7 +35,7 @@ void MainWindow::on_pushButton_clicked()
         thongbaorong.exec();
     }
     else {
-        if(ui->lineEdit_sdtSV->text().toInt() == 0)
+        if(ui->lineEdit_sdtSV->text().toInt() == 0 ||  ui->lineEdit_sdtSV->text().isEmpty())
         {
             QMessageBox laso;
             laso.setText("La so");
@@ -80,7 +80,6 @@ void MainWindow::on_pushButton_clicked()
                     newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"','"+ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString()+"','"\
                           +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"')");
             }
-            qDebug()<<newq.lastError().text();
         }
         else{
             tempst1 = "insert into SINH_VIEN values ('" +ui->lineEdit_mssvSV->text()+"','"+ui->comboBox_lopSv->itemText(ui->comboBox_lopSv->currentIndex())+"','"+ui->lineEdit_hotenSV->text()+"','" \
@@ -101,8 +100,7 @@ void MainWindow::on_pushButton_clicked()
             else
                 newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"','"+ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString()+"',"\
                       +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"')");
-            modelInfosv.setQuery("select mssv from SINH_VIEN");
-            ui->listView_sv->setModel(&modelInfosv);
+            p_display(ui->spinBox->value(),4,"SINH_VIEN");
         }
         }
     }
@@ -148,12 +146,13 @@ void MainWindow::on_actionTim_kiem_triggered()
 //tao ham loadpage
 void MainWindow::loadpage()
 {
+    giatrispibox =0;
     //loaf gia tri spinbox cho display so dong cua ket qua
     QSettings giatr("connect.conf",QSettings::IniFormat);
     giatr.beginGroup("Settings");
     ui->spinBox->setValue(giatr.value("p_display").toInt());
     //hien thi danh sach sinh vien
-    modelInfosv.setQuery("select mssv from SINH_VIEN");
+    modelInfosv.setQuery("select * from SINH_VIEN limit "+QString::number(giatrispibox)+","+QString::number(ui->spinBox->value()));
     ui->listView_sv->setModel(&modelInfosv);
     //
     QSqlQuery query;
@@ -178,15 +177,13 @@ void MainWindow::loadpage()
 void MainWindow::on_pushButton_3_clicked()
 {
     QString newstring;
-    newstring =  "INSERT INTO `HOP_DONG`(`mssv`, `ma_phong`, `tg_hd`, `ngay_dk`) "\
-            "VALUES ('"+ui->comboBoxSV_tabHD->itemData(ui->comboBoxSV_tabHD->currentIndex()).toString()+"','"\
-            /*+ui->lineEdit_mahd->text()+"','"\*/
-            +ui->comboBoxPhong_tabHD->currentText()+"','"\
-            +ui->dateEdit_thoihan->date().toString("yyyy-MM-dd")+"','"\
-            +ui->dateEdit_ngadk->date().toString("yyyy-MM-dd")+"')";
+    newstring =  "INSERT INTO `HOP_DONG`(`stt_hd`, `ma_phong`, `mssv`, `ngay_den`, `ngay_di`,`tg_toi_da`) "\
+            "VALUES ('','"+ui->comboBoxPhong_tabHD->currentText()+"','"\
+            +ui->comboBoxSV_tabHD->itemData(ui->comboBoxSV_tabHD->currentIndex()).toString()+"','"\
+            +ui->dateEdit_ngadk->date().toString("yyyy-MM-dd")+"','"\
+            +ui->lineEdit_Ngaydi->text()+"','"+ui->dateEdit_thoihan->date().toString("yyyy-MM-dd")+"')";
     newq.exec(newstring);
     qDebug()<<newq.lastError().text();
-    //modelHopdong.setQuery("select HOP_DONG.ma_hd as '"+QString::fromUtf8("Ma HD")+"',SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten SV")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv");
     modelHopdong.setQuery("select SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten")+"',HOP_DONG.tg_hd as '"+QString::fromUtf8("Thoi hang")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv");
     ui->treeView->setModel(&modelHopdong);
 
@@ -228,9 +225,6 @@ void MainWindow::on_comboBox_qh_currentIndexChanged(int index)
 void MainWindow::on_listView_sv_clicked(const QModelIndex &index)
 {
     this->loadtabSV(index);
-   //
-    //QPixmap pix("/home/xdien/ProjectsQT/qlsv_ktx/the_1.jpg");
-    //ui->label_pic->setPixmap(pix.scaled(120,160,Qt::KeepAspectRatio));
 }
 
 
@@ -313,46 +307,6 @@ void MainWindow::setcombobox(QString madc)
         break;
     }
     }
-    /*
-    ui->comboBox_qh->clear();
-    ui->comboBox_xp->clear();
-    oldc.exec("select * from DC_CUASV where mssv = '"+mssv+"'");
-    if(oldc.next())
-    {
-           ui->comboBox_tp->setCurrentIndex(ui->comboBox_tp->findData(oldc.value(4).toString()));
-           //set quan huyen
-           if(!oldc.value(3).isNull())
-           {
-               qDebug()<<"qh khong rong";
-                newq.exec("select * from district where provinceid ='"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"'");
-                while (newq.next()) {
-                    ui->comboBox_qh->addItem(newq.value(1).toString(),newq.value(0));
-                }
-                QString qh;
-                qh = oldc.value(3).toString();
-                qDebug()<<qh<<ui->comboBox_qh->findData(oldc.value(3).toString(),);
-                ui->comboBox_qh->setCurrentIndex(2);*/
-                //set xa phuong
-                /*if(!oldc.value(2).isNull())
-                {
-                    newq.exec("select * from ward where districtid ='"+ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"'");
-                    while(newq.next())
-                    {
-                        ui->comboBox_xp->addItem(newq.value(1).toString(),newq.value(0));
-                    }
-
-                    ui->comboBox_xp->setCurrentIndex(ui->comboBox_xp->findData(oldc.value(2).toString()));
-                }
-                else
-                {
-                    ui->comboBox_xp->setCurrentIndex(-1);
-                }*/
-           /*}
-           else
-           {
-               ui->comboBox_qh->setCurrentIndex(-1);
-           }
-    }*/
 }
 
 void MainWindow::on_tabWidget_currentChanged(int index)
@@ -360,8 +314,9 @@ void MainWindow::on_tabWidget_currentChanged(int index)
     //neu index thay doi bang = 1 thi chon load lop + ten sv vao combobx
     if(index ==1 )
     {
-        modelHopdong.setQuery("select SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten")+"',HOP_DONG.tg_hd as '"+QString::fromUtf8("Thoi hang")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv");
-        //modelHopdong.setQuery("select HOP_DONG.ma_hd as '"+QString::fromUtf8("Ma HD")+"', SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten SV")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv");
+        ui->spinBox_2->setValue(ui->spinBox->value());
+        modelHopdong.setQuery("select SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten")+"',HOP_DONG.tg_toi_da as '"+QString::fromUtf8("Thoi hang")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv");
+
         ui->treeView->setModel(&modelHopdong);
         ui->comboxLop_tabHopdong->clear();
         newq.exec("select * from LOP");
@@ -375,6 +330,13 @@ void MainWindow::on_tabWidget_currentChanged(int index)
         while (newq.next()) {
             ui->comboBoxPhong_tabHD->addItem(newq.value(0).toString());
         }
+    }
+    //load tab xl thanh toan
+    if(index == 2)
+    {
+        ui->spinBox_3->setValue(ui->spinBox->value());
+        modelTT.setQuery("select HOP_DONG.mssv,HOP_DONG.tg_toi_da from PT_TIEN_TRO left join HOP_DONG on PT_TIEN_TRO.stt_hd = HOP_DONG.stt_hd limit 0,"+QString::number(ui->spinBox_3->value()));
+        ui->treeView_thanhtoan->setModel(&modelTT);
     }
 }
 
@@ -475,7 +437,6 @@ void MainWindow::on_pushButton_4_clicked()
         report->addParameter("thoihan",ui->dateEdit_thoihan->date().toString("dd/MM/yyyy"));
     }
     report->runReportToPreview(); // run to preview output
-    //report->dataSource()
 
     // error handling
     if( report->hasError())
@@ -517,10 +478,8 @@ void MainWindow::on_actionL_p_triggered()
 
 void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
-    newqm = new QSqlQueryModel();
-    newqm->setQuery("select mssv,ngay from PT_TIEN_TRO " \
+    modelTT.setQuery("select mssv,ngay from PT_TIEN_TRO " \
                     "where mssv like '%"+arg1+"%' order by ngay desc");
-    ui->treeView_thanhtoan->setModel(newqm);
 }
 
 
@@ -540,11 +499,6 @@ void MainWindow::on_treeView_thanhtoan_clicked(const QModelIndex &index)
         //ui->spinBox_DIEN->setValue(newq.value(3).toInt());
         //ui->spinBox_NUOC->setValue(newq.value(4).toInt());
         ui->dateEdit_quy->setDate(newq.value(5).toDate());
-        //tinh gia dien va nuoc; dien = 3000/kw nuoc = 5000/m3
-        //ui->lineEdit_TIENDIEN->setText(QString::number(newq.value(3).toInt()*3000));
-        //ui->lineEdit_TIENNUOC->setText(QString::number(newq.value(4).toInt()*5000));
-        //tinh tong tien tro dien+nuoc+tro
-        //tempint = ui->lineEdit_TIENDIEN->text().toInt()+ ui->lineEdit_TIENNUOC->text().toInt() + ui->spinBox_tientro->value();
         ui->label_tien->setText(QString::number(tempint));
 
     }
@@ -647,4 +601,192 @@ void MainWindow::on_spinBox_valueChanged(int arg1)
     QSettings p_display("connect.conf",QSettings::IniFormat);
     p_display.beginGroup("Settings");
     p_display.setValue("p_display",arg1);
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    p_display(ui->spinBox->value(),1,"SINH_VIEN");
+}
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    if(giatrispibox >= 0)
+    {
+        qDebug()<<giatrispibox;
+        p_display(ui->spinBox->value(),2,"SINH_VIEN");
+    }
+}
+void MainWindow::p_display(const int donghienthi, int toantu, const QString tablename)
+{
+    switch (toantu) {
+    case 1://gia tri tang len
+    {
+        giatrispibox = giatrispibox + donghienthi;
+        modelInfosv.setQuery("select * from "+tablename+" limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+    }
+        break;
+    case 2://giam gia tri
+    {
+        giatrispibox = giatrispibox - donghienthi;
+        modelInfosv.setQuery("select * from "+tablename+" limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+    }
+        break;
+    case 3://end
+    {
+        newq.exec("select count(*) from "+tablename+"");
+        if(newq.next())
+        {
+            giatrispibox =  newq.value(0).toInt() - (newq.value(0).toInt() % donghienthi);
+            qDebug()<<giatrispibox;
+            modelInfosv.setQuery("select * from "+tablename+" limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+        }
+    }
+        break;
+    case 4://start
+    {
+        giatrispibox = 0;
+        modelInfosv.setQuery("select * from "+tablename+" limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+    }
+    default:
+        break;
+    }
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    p_display(ui->spinBox->value(),3,"SINH_VIEN");
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    p_display(ui->spinBox->value(),4,"SINH_VIEN");
+}
+//p_displayHD
+void MainWindow::p_displayHD(const int donghienthi, int toantu)
+{
+    switch (toantu) {
+    case 1://gia tri tang len
+    {
+        giatrispibox = giatrispibox + donghienthi;
+        modelHopdong.setQuery("select SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten")+"',HOP_DONG.tg_toi_da as '"+QString::fromUtf8("Thoi hang")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+    }
+        break;
+    case 2://giam gia tri
+    {
+        giatrispibox = giatrispibox - donghienthi;
+        modelHopdong.setQuery("select SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten")+"',HOP_DONG.tg_toi_da as '"+QString::fromUtf8("Thoi hang")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+    }
+        break;
+    case 3://end
+    {
+        newq.exec("select count(*) from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv");
+        if(newq.next())
+        {
+            giatrispibox =  newq.value(0).toInt() - (newq.value(0).toInt() % donghienthi);
+            qDebug()<<giatrispibox;
+            modelHopdong.setQuery("select SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten")+"',HOP_DONG.tg_toi_da as '"+QString::fromUtf8("Thoi hang")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+        }
+    }
+        break;
+    case 4://start
+    {
+        giatrispibox = 0;
+        modelHopdong.setQuery("select SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten")+"',HOP_DONG.tg_toi_da as '"+QString::fromUtf8("Thoi hang")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+    }
+    default:
+        break;
+    }
+}
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    p_displayHD(ui->spinBox_2->value(),4);
+}
+
+
+void MainWindow::on_pushButton_12_clicked()
+{
+    p_displayHD(ui->spinBox_2->value(),2);
+}
+
+
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    p_displayHD(ui->spinBox_2->value(),1);
+}
+
+
+
+void MainWindow::on_pushButton_10_clicked()
+{
+    p_displayHD(ui->spinBox_2->value(),3);
+}
+
+void MainWindow::on_spinBox_2_valueChanged(int arg1)
+{
+    QSettings p_display("connect.conf",QSettings::IniFormat);
+    p_display.beginGroup("Settings");
+    p_display.setValue("p_display",arg1);
+}
+
+void MainWindow::p_displayTT(const int donghienthi, int toantu)
+{
+    switch (toantu) {
+    case 1://gia tri tang len
+    {
+        giatrispibox = giatrispibox + donghienthi;
+        modelTT.setQuery("select * from PT_TIEN_TRO left join HOP_DONG on PT_TIEN_TRO.stt_hd = HOP_DONG.stt_hd " \
+                              " limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+    }
+        break;
+    case 2://giam gia tri
+    {
+        giatrispibox = giatrispibox - donghienthi;
+        modelTT.setQuery("select * from PT_TIEN_TRO left join HOP_DONG on PT_TIEN_TRO.stt_hd = HOP_DONG.stt_hd " \
+                              " limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+    }
+        break;
+    case 3://end
+    {
+        newq.exec("select count(*) from PT_TIEN_TRO left join HOP_DONG on PT_TIEN_TRO.stt_hd = HOP_DONG.stt_hd");
+        if(newq.next())
+        {
+            giatrispibox =  newq.value(0).toInt() - (newq.value(0).toInt() % donghienthi);
+            qDebug()<<giatrispibox;
+            modelTT.setQuery("select * from PT_TIEN_TRO left join HOP_DONG on PT_TIEN_TRO.stt_hd = HOP_DONG.stt_hd " \
+                                  " limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+        }
+    }
+        break;
+    case 4://start
+    {
+        giatrispibox = 0;
+        modelTT.setQuery("select * from PT_TIEN_TRO left join HOP_DONG on PT_TIEN_TRO.stt_hd = HOP_DONG.stt_hd " \
+                              " limit "+QString::number(giatrispibox)+","+QString::number(donghienthi));
+    }
+    default:
+        break;
+    }
+}
+
+
+void MainWindow::on_pushButton_14_clicked()
+{
+    p_displayTT(ui->spinBox_3->value(),1);
+}
+
+void MainWindow::on_pushButton_13_clicked()
+{
+    p_displayTT(ui->spinBox_3->value(),3);
+}
+
+void MainWindow::on_pushButton_15_clicked()
+{
+    p_displayTT(ui->spinBox_3->value(),2);
+}
+
+void MainWindow::on_pushButton_16_clicked()
+{
+    p_displayTT(ui->spinBox_3->value(),4);
 }

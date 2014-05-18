@@ -19,7 +19,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     //QSqlQuery *query;
-    QSqlQueryModel modelHopdong, modelInfosv;
+    QSqlQueryModel modelHopdong, modelInfosv, modelTT;
 public slots:
 private slots:
     void on_pushButton_clicked();
@@ -80,14 +80,43 @@ private slots:
 
     void on_spinBox_valueChanged(int arg1);
 
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_11_clicked();
+
+    void on_pushButton_12_clicked();
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_10_clicked();
+
+    void on_spinBox_2_valueChanged(int arg1);
+
+    void on_pushButton_14_clicked();
+
+    void on_pushButton_13_clicked();
+
+    void on_pushButton_15_clicked();
+
+    void on_pushButton_16_clicked();
+
 private:
     void loadpage();
+    void p_display(const int donghienthi, int toantu, const QString tablename);
+    void p_displayHD(const int donghienthi, int toantu);
+    void p_displayTT(const int donghienthi, int toantu);
     Ui::MainWindow *ui;
     QPixmap pix;
     QString tempst;
     QString tempst1,tempst2, linkimg, luumssv;
     QModelIndex clickidxSV;
-    int tempint;
+    int tempint, giatrispibox;
     QSqlQuery newq,oldc;
     QSqlQueryModel *newqm;
     QString thuocdiachi(QString nhapvao);
