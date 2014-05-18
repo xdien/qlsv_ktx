@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
 #include <config_sqlconnect.h>
-#include <tablemodel_sv.h>
 
 int main(int argc, char *argv[])
 {

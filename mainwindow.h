@@ -5,7 +5,7 @@
 #include <QSqlQuery>
 #include <QModelIndex>
 /*Them tablemodel_sv*/
-#include "tablemodel_sv.h"
+#include "listtable.h"
 #include <QFileDialog>
 namespace Ui {
 class MainWindow;
@@ -19,13 +19,10 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     //QSqlQuery *query;
-    tablemodel_sv table1;
-    QSqlQueryModel modelHopdong;
+    QSqlQueryModel modelHopdong, modelInfosv;
 public slots:
 private slots:
     void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
 
     void on_actionThoat_triggered();
 
@@ -35,7 +32,6 @@ private slots:
 
     void on_actionTim_kiem_triggered();
 
-    void keyPressEvent(QKeyEvent *e);
     void keyReleaseEvent(QKeyEvent *);
 
     void on_pushButton_3_clicked();

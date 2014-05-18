@@ -101,16 +101,12 @@ void MainWindow::on_pushButton_clicked()
             else
                 newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"','"+ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString()+"',"\
                       +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"')");
-            table1.model->select();
+            modelInfosv.setQuery("select mssv from SINH_VIEN");
+            ui->listView_sv->setModel(&modelInfosv);
         }
         }
     }
 
-}
-
-void MainWindow::on_pushButton_2_clicked()
-{
-    table1.model->select();
 }
 
 void MainWindow::on_actionThoat_triggered()
@@ -149,44 +145,6 @@ void MainWindow::on_actionTim_kiem_triggered()
 }
 
 
-void MainWindow::keyPressEvent(QKeyEvent *e)
-{
-    if(e->key() == Qt::Key_Delete)
-    {
-        qDebug()<< table1.model->removeRow(clickidxSV.row());
-        table1.model->select();
-    }
-
-    // if(e->key() == QKeySequence::fromString("`"))
-     if(e->matches(QKeySequence::Italic))
-     {
-         int rowCount;
-         table1.model->setEditStrategy(QSqlTableModel::OnManualSubmit);
-          rowCount = table1.model->rowCount();
-          if(!table1.model->insertRow(rowCount))
-          {
-              qDebug()<<"Inserows for recoder table: "<<table1.model->lastError().text();
-          }
-          else
-          {
-
-          }
-      }
-     if(e->matches(QKeySequence::Save))
-     {
-         if(table1.model->submitAll())
-         {
-             table1.model->database().commit();
-         }
-     }
-     if(e->matches(QKeySequence::Find))
-     {
-         //tao new dialog moi
-         DialogForm formseach;
-         formseach.exec();
-     }
-}
-
 //tao ham loadpage
 void MainWindow::loadpage()
 {
@@ -194,8 +152,10 @@ void MainWindow::loadpage()
     QSettings giatr("connect.conf",QSettings::IniFormat);
     giatr.beginGroup("Settings");
     ui->spinBox->setValue(giatr.value("p_display").toInt());
-    //table1.model->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    ui->listView_sv->setModel(table1.model);
+    //hien thi danh sach sinh vien
+    modelInfosv.setQuery("select mssv from SINH_VIEN");
+    ui->listView_sv->setModel(&modelInfosv);
+    //
     QSqlQuery query;
     QString val1;
     query.exec("select ten_lop from LOP");
@@ -303,8 +263,7 @@ void MainWindow::on_action_i_t_ng_triggered()
 
 void MainWindow::on_pushButton_dlsv_clicked()
 {
-    qDebug()<< table1.model->removeRow(clickidxSV.row());
-    table1.model->select();
+    //Ham xoa 1 sinh vien
 }
 void MainWindow::setcombobox(QString madc)
 {
@@ -432,7 +391,7 @@ void MainWindow::on_comboxLop_tabHopdong_activated(const QString &arg1)
 
 void MainWindow::loadtabSV(const QModelIndex &index)
 {
-    newq.exec("select * from SINH_VIEN where mssv = '"+table1.model->data(index).toString()+"'");
+    newq.exec("select * from SINH_VIEN where mssv = '"+ui->listView_sv->currentIndex().sibling(index.row(),0).data().toString()+"'");
     if(newq.next())
     {
         tempst = newq.value(1).toString();
@@ -458,7 +417,7 @@ void MainWindow::loadtabSV(const QModelIndex &index)
         }
         ui->comboBox_lopSv->setCurrentIndex(ui->comboBox_lopSv->findText(tempst));
         //truy van dia chi
-        newq.exec("select * from DC_CUASV where mssv = '"+table1.model->data(index).toString()+"'");
+        newq.exec("select * from DC_CUASV where mssv = '"+ui->listView_sv->currentIndex().sibling(index.row(),0).data().toString()+"'");
         if(newq.next())
         {
             ui->lineEdit_diachi->clear();

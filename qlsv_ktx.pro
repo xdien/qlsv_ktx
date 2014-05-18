@@ -30,7 +30,6 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     dialog_chitietsv.h \
-    tablemodel_sv.h \
     config_sqlconnect.h \
     dialog_setting.h \
     dialogform.h \
