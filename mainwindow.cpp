@@ -12,6 +12,7 @@
 #include "dialog_suadt.h"
 #include "dialog_chontp.h"
 #include "dialog_chonkhoa.h"
+#include "dialogchonnganh.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -34,6 +35,14 @@ void MainWindow::on_pushButton_clicked()
         thongbaorong.exec();
     }
     else {
+        if(ui->lineEdit_sdtSV->text().toInt() == 0)
+        {
+            QMessageBox laso;
+            laso.setText("La so");
+            laso.exec();
+        }
+        else
+        {
         QSqlQuery truyvanmoi;
         if(ui->checkBox_gt->isChecked())
             tempint = 1;
@@ -93,6 +102,7 @@ void MainWindow::on_pushButton_clicked()
                 newq.exec("insert into DC_CUASV(`mssv`,`chitiet`,`wardid`,`districtid`,`provinceid`) values('"+tempst+"','"+ui->lineEdit_diachi->text()+"','"+ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString()+"',"\
                       +ui->comboBox_qh->itemData(ui->comboBox_qh->currentIndex()).toString()+"','"+ui->comboBox_tp->itemData(ui->comboBox_tp->currentIndex()).toString()+"')");
             table1.model->select();
+        }
         }
     }
 
@@ -180,19 +190,14 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
 //tao ham loadpage
 void MainWindow::loadpage()
 {
+    //loaf gia tri spinbox cho display so dong cua ket qua
+    QSettings giatr("connect.conf",QSettings::IniFormat);
+    giatr.beginGroup("Settings");
+    ui->spinBox->setValue(giatr.value("p_display").toInt());
     //table1.model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     ui->listView_sv->setModel(table1.model);
-    //ui->tableView_listtable->setModel(listmoi.model);
     QSqlQuery query;
-    QString val1, val2;
-    query.exec("select * from DOI_TUONG");
-    while (query.next()) {
-        //doi tuong
-        val1 = query.value(0).toString();
-        val2 = query.value(1).toString();
-        //ui->comboBox_dtSV->addItem(val2,val1);
-    }
-    query.clear();
+    QString val1;
     query.exec("select ten_lop from LOP");
     while (query.next()) {
         //lop
@@ -573,14 +578,14 @@ void MainWindow::on_treeView_thanhtoan_clicked(const QModelIndex &index)
     {
         ui->label_ten->setText(newq.value(13).toString());
         ui->spinBox_PHONG->setValue(newq.value(7).toInt());
-        ui->spinBox_DIEN->setValue(newq.value(3).toInt());
-        ui->spinBox_NUOC->setValue(newq.value(4).toInt());
+        //ui->spinBox_DIEN->setValue(newq.value(3).toInt());
+        //ui->spinBox_NUOC->setValue(newq.value(4).toInt());
         ui->dateEdit_quy->setDate(newq.value(5).toDate());
         //tinh gia dien va nuoc; dien = 3000/kw nuoc = 5000/m3
-        ui->lineEdit_TIENDIEN->setText(QString::number(newq.value(3).toInt()*3000));
-        ui->lineEdit_TIENNUOC->setText(QString::number(newq.value(4).toInt()*5000));
+        //ui->lineEdit_TIENDIEN->setText(QString::number(newq.value(3).toInt()*3000));
+        //ui->lineEdit_TIENNUOC->setText(QString::number(newq.value(4).toInt()*5000));
         //tinh tong tien tro dien+nuoc+tro
-        tempint = ui->lineEdit_TIENDIEN->text().toInt()+ ui->lineEdit_TIENNUOC->text().toInt() + ui->spinBox_tientro->value();
+        //tempint = ui->lineEdit_TIENDIEN->text().toInt()+ ui->lineEdit_TIENNUOC->text().toInt() + ui->spinBox_tientro->value();
         ui->label_tien->setText(QString::number(tempint));
 
     }
@@ -662,7 +667,7 @@ void MainWindow::on_actionDanh_s_ch_SV_theo_phong_triggered()
 
 void MainWindow::on_actionTh_ng_k_theo_ti_nh_tha_nh_triggered()
 {
-    dialog_chonTP tinhtp;
+    dialog_chonTP tinhtp(this);
     tinhtp.exec();
 }
 
@@ -670,4 +675,17 @@ void MainWindow::on_actionKhoa_triggered()
 {
     dialog_chonKhoa chonkhoa(this);
     chonkhoa.exec();
+}
+
+void MainWindow::on_actionTheo_nga_nh_triggered()
+{
+    dialogChonNganh nganhmoi(this);
+    nganhmoi.exec();
+}
+
+void MainWindow::on_spinBox_valueChanged(int arg1)
+{
+    QSettings p_display("connect.conf",QSettings::IniFormat);
+    p_display.beginGroup("Settings");
+    p_display.setValue("p_display",arg1);
 }

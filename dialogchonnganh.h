@@ -18,22 +18,30 @@
  *                                                                    		*
  ***************************************************************************/
 
-#ifndef LISTTABLE_H
-#define LISTTABLE_H
+#ifndef DIALOGCHONNGANH_H
+#define DIALOGCHONNGANH_H
 
-#include <QTableView>
+#include <QDialog>
 #include <QtSql>
 
-class listtable : public QTableView
+namespace Ui {
+class dialogChonNganh;
+}
+
+class dialogChonNganh : public QDialog
 {
     Q_OBJECT
+
 public:
-    explicit listtable(QWidget *parent = 0);
-    QSqlQueryModel *model;
-signals:
+    explicit dialogChonNganh(QWidget *parent = 0);
+    ~dialogChonNganh();
 
-public slots:
+private slots:
+    void on_buttonBox_accepted();
 
+private:
+    QSqlQuery newq;
+    Ui::dialogChonNganh *ui;
 };
 
-#endif // LISTTABLE_H
+#endif // DIALOGCHONNGANH_H

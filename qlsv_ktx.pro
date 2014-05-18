@@ -16,7 +16,6 @@ LIBS += -L/home/xdien/NCReport2/lib -lNCReport
 SOURCES += main.cpp\
         mainwindow.cpp \
     dialog_chitietsv.cpp \
-    tablemodel_sv.cpp \
     config_sqlconnect.cpp \
     dialog_setting.cpp \
     dialogform.cpp \
@@ -26,7 +25,8 @@ SOURCES += main.cpp\
     add_lop.cpp \
     form_liststbyphong.cpp \
     dialog_chontp.cpp \
-    dialog_chonkhoa.cpp
+    dialog_chonkhoa.cpp \
+    dialogchonnganh.cpp
 
 HEADERS  += mainwindow.h \
     dialog_chitietsv.h \
@@ -34,13 +34,14 @@ HEADERS  += mainwindow.h \
     config_sqlconnect.h \
     dialog_setting.h \
     dialogform.h \
-    listtable.h \
     editdatatable.h \
     dialog_suadt.h \
     add_lop.h \
     form_liststbyphong.h \
     dialog_chontp.h \
-    dialog_chonkhoa.h
+    dialog_chonkhoa.h \
+    dialogchonnganh.h \
+    listtable.h
 
 FORMS    += mainwindow.ui \
     dialog_chitietsv.ui \
@@ -51,7 +52,8 @@ FORMS    += mainwindow.ui \
     add_lop.ui \
     form_liststbyphong.ui \
     dialog_chontp.ui \
-    dialog_chonkhoa.ui
+    dialog_chonkhoa.ui \
+    dialogchonnganh.ui
 
 RESOURCES += \
     libIcons.qrc

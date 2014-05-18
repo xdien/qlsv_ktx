@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>635</width>
-    <height>482</height>
+    <width>717</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -23,7 +23,7 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="styleSheet">
@@ -36,9 +36,9 @@
        <attribute name="title">
         <string>Quản lý tt SV</string>
        </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
            <widget class="QLabel" name="label_2">
             <property name="text">
@@ -52,6 +52,72 @@
              <enum>Qt::DefaultContextMenu</enum>
             </property>
            </widget>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
+            <item row="0" column="1">
+             <widget class="QPushButton" name="pushButton_6">
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>&lt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QPushButton" name="pushButton_7">
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4">
+             <widget class="QPushButton" name="pushButton_8">
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>&gt;&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>&lt;&lt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QSpinBox" name="spinBox">
+              <property name="value">
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_dlsv">
@@ -408,7 +474,7 @@
              <item row="0" column="0">
               <widget class="QLabel" name="label_15">
                <property name="text">
-                <string>Ngày đăng ký</string>
+                <string>Ngày vào ở</string>
                </property>
               </widget>
              </item>
@@ -433,7 +499,7 @@
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
+             <item row="2" column="1">
               <widget class="QDateEdit" name="dateEdit_thoihan">
                <property name="date">
                 <date>
@@ -447,17 +513,37 @@
                </property>
               </widget>
              </item>
-             <item row="1" column="0">
+             <item row="2" column="0">
               <widget class="QLabel" name="label_8">
                <property name="text">
-                <string>Thời hạn đến</string>
+                <string>Hạn ở tối đa</string>
                </property>
               </widget>
              </item>
-             <item row="2" column="1">
+             <item row="3" column="1">
               <widget class="QPushButton" name="pushButton_4">
                <property name="text">
                 <string>In hợp đồng</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>Ngày đi</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="lineEdit_Ngaydi">
+               <property name="toolTip">
+                <string>Nếu là hợp đồng mới xin để rỗng</string>
+               </property>
+               <property name="inputMethodHints">
+                <set>Qt::ImhDialableCharactersOnly|Qt::ImhDigitsOnly</set>
+               </property>
+               <property name="maxLength">
+                <number>10</number>
                </property>
               </widget>
              </item>
@@ -466,7 +552,7 @@
            <item>
             <widget class="QPushButton" name="pushButton_3">
              <property name="text">
-              <string>Thêm hợp đồng mới</string>
+              <string>Lưu</string>
              </property>
             </widget>
            </item>
@@ -519,6 +605,16 @@
           <layout class="QVBoxLayout" name="verticalLayout_7">
            <item>
             <layout class="QFormLayout" name="formLayout_8">
+             <property name="fieldGrowthPolicy">
+              <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+             </property>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_20">
+               <property name="text">
+                <string>Tên sinh viên</string>
+               </property>
+              </widget>
+             </item>
              <item row="0" column="1">
               <widget class="QLabel" name="label_ten">
                <property name="text">
@@ -527,89 +623,44 @@
               </widget>
              </item>
              <item row="1" column="0">
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>MSSV</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
               <widget class="QLabel" name="label_21">
                <property name="text">
                 <string>Phòng ở</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
+             <item row="2" column="1">
               <widget class="QSpinBox" name="spinBox_PHONG">
                <property name="enabled">
                 <bool>false</bool>
                </property>
               </widget>
              </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_20">
-               <property name="text">
-                <string>Tên sinh viên</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout_4">
-             <item row="0" column="0">
+             <item row="3" column="0">
               <widget class="QLabel" name="label_22">
                <property name="text">
-                <string>TT điện</string>
+                <string>STT phiếu thu</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QSpinBox" name="spinBox_DIEN">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="maximum">
-                <number>99999</number>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLabel" name="label_24">
-               <property name="text">
-                <string>Thành tiền</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QLineEdit" name="lineEdit_TIENDIEN">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
+             <item row="4" column="0">
               <widget class="QLabel" name="label_23">
                <property name="text">
-                <string>TT nước</string>
+                <string>STT Hợp đồng</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
-              <widget class="QSpinBox" name="spinBox_NUOC">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="maximum">
-                <number>999999</number>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QLabel" name="label_25">
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_24">
                <property name="text">
-                <string>Thành tiền</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="3">
-              <widget class="QLineEdit" name="lineEdit_TIENNUOC">
-               <property name="enabled">
-                <bool>false</bool>
+                <string>Thuộc quý</string>
                </property>
               </widget>
              </item>
@@ -617,46 +668,7 @@
            </item>
            <item>
             <layout class="QGridLayout" name="gridLayout_5">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_26">
-               <property name="text">
-                <string>Tiền trọ</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QSpinBox" name="spinBox_tientro">
-               <property name="maximum">
-                <number>999999999</number>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_27">
-               <property name="text">
-                <string>Kỳ</string>
-               </property>
-              </widget>
-             </item>
              <item row="1" column="1">
-              <widget class="QDateEdit" name="dateEdit_quy">
-               <property name="date">
-                <date>
-                 <year>2014</year>
-                 <month>1</month>
-                 <day>1</day>
-                </date>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_28">
-               <property name="text">
-                <string>Tổng tiền</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
               <widget class="QLabel" name="label_tien">
                <property name="font">
                 <font>
@@ -669,6 +681,31 @@
                </property>
                <property name="text">
                 <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_27">
+               <property name="text">
+                <string>Của tháng</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QDateEdit" name="dateEdit_quy">
+               <property name="date">
+                <date>
+                 <year>2014</year>
+                 <month>1</month>
+                 <day>1</day>
+                </date>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_28">
+               <property name="text">
+                <string>Tổng tiền</string>
                </property>
               </widget>
              </item>
@@ -707,7 +744,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>635</width>
+     <width>717</width>
      <height>22</height>
     </rect>
    </property>

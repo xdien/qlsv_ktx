@@ -5,7 +5,6 @@
 #include <QSqlQuery>
 #include <QModelIndex>
 /*Them tablemodel_sv*/
-#include "listtable.h"
 #include "tablemodel_sv.h"
 #include <QFileDialog>
 namespace Ui {
@@ -21,7 +20,6 @@ public:
     ~MainWindow();
     //QSqlQuery *query;
     tablemodel_sv table1;
-    listtable listmoi;
     QSqlQueryModel modelHopdong;
 public slots:
 private slots:
@@ -81,6 +79,10 @@ private slots:
     void on_actionTh_ng_k_theo_ti_nh_tha_nh_triggered();
 
     void on_actionKhoa_triggered();
+
+    void on_actionTheo_nga_nh_triggered();
+
+    void on_spinBox_valueChanged(int arg1);
 
 private:
     void loadpage();

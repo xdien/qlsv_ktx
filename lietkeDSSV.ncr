@@ -20,7 +20,7 @@
         <htmlBodyStyle>{DEFAULT}</htmlBodyStyle>
     </options>
     <datasources>
-        <datasource id="DataSource2" type="sql" openRole="begin" source="static" connection="external" parentID="" connID="gentoo" host="gentoo" database="db_ktx" user="xdien" password="123456" port="" driver="QMYSQL">select SINH_VIEN.ho_ten,SINH_VIEN.mssv,HOP_DONG.ma_phong,HOP_DONG.tg_hd from PHONG
+        <datasource id="DataSource2" type="sql" openRole="begin" source="static" connection="external" parentID="" connID="" host="gentoo" database="db_ktx" user="xdien" password="123456" port="" driver="QMYSQL">select SINH_VIEN.ho_ten,SINH_VIEN.mssv,HOP_DONG.ma_phong,HOP_DONG.tg_toi_da from PHONG
 left join HOP_DONG on PHONG.ma_phong = HOP_DONG.ma_phong
 left join SINH_VIEN on SINH_VIEN.mssv = HOP_DONG.mssv</datasource>
     </datasources>
@@ -43,7 +43,7 @@ p, li { white-space: pre-wrap; }
                 <field id="46JJZ" typeId="131074" zValue="0" posX="85.725" posY="0.000" width="31.750" height="4.762" description="mssv" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource2.mssv</field>
                 <field id="96G74" zValue="1" posX="47.625" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource2.ho_ten</field>
                 <field id="SYJ36" zValue="2" posX="0.000" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource2.ma_phong</field>
-                <field id="TBZNG" zValue="3" posX="125.412" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource2.tg_hd</field>
+                <field id="TBZNG" zValue="3" posX="125.412" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" type="txt" ftype="ds">DataSource2.tg_toi_da</field>
             </items>
         </detail>
     </details>
