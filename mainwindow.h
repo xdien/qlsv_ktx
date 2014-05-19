@@ -105,7 +105,6 @@ private slots:
     void on_pushButton_15_clicked();
 
     void on_pushButton_16_clicked();
-
 private:
     void loadpage();
     void p_display(const int donghienthi, int toantu, const QString tablename);

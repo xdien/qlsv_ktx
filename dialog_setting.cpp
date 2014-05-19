@@ -3,7 +3,9 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QSqlDatabase>
-
+#include <QDomElement>
+#include <QFile>
+#include <QFileDialog>
 
 Dialog_setting::Dialog_setting(QWidget *parent) :
     QDialog(parent),
@@ -47,10 +49,58 @@ void Dialog_setting::on_pushButton_clicked()
 
 void Dialog_setting::on_buttonBox_accepted()
 {
+    host = ui->linedialog_ip->text();
+    user = ui->linedialog_user->text();
+    pass = ui->linedialog_pass->text();
+    db = ui->linedialog_db->text();
     QSettings settings("connect.conf",QSettings::IniFormat);
     settings.beginGroup("Default");
-    settings.setValue("ip",ui->linedialog_ip->text());
-    settings.setValue("user",ui->linedialog_user->text());
-    settings.setValue("pass",ui->linedialog_pass->text());
-    settings.setValue("db",ui->linedialog_db->text());
+    settings.setValue("ip",host);
+    settings.setValue("user",user);
+    settings.setValue("pass",pass);
+    settings.setValue("db",db);
+    write_configXML("lietkeDSSV.ncr");
+    write_configXML("lietkeTheoKhoa.ncr");
+    write_configXML("lietkeTheoTP.ncr");
+    write_configXML("printHD.ncr");
+    write_configXML("pttientro.ncr");
+}
+
+void Dialog_setting::write_configXML(const QString fileName)
+{
+    QString temp;
+    temp = dir+"/";//danh cho linux
+    temp.append(fileName);
+    qDebug()<<temp;
+    QFile file(temp);
+    if(file.open(QFile::ReadWrite))
+    {
+    QDomDocument doc;
+    doc.setContent(&file);
+    QDomElement docTag = doc.documentElement();
+    QDomElement datasourcesTag = docTag.firstChildElement("datasources");
+    QDomElement datasourceTag = datasourcesTag.firstChildElement();
+    qDebug()<< datasourceTag.tagName();
+    datasourceTag.setAttribute("host",host);
+    datasourceTag.setAttribute("database",db);
+    datasourceTag.setAttribute("user",user);
+    datasourceTag.setAttribute("password",pass);
+    file.resize(0);
+    QTextStream stream;
+    stream.setDevice(&file);
+    doc.save(stream,4);
+    file.close();
+    }
+    else
+    {
+        qDebug()<<"Khong the read or write file";
+    }
+}
+
+void Dialog_setting::on_toolButton_clicked()
+{
+    QFileDialog dialog;
+    dialog.setFileMode(QFileDialog::Directory);
+    dir = dialog.getExistingDirectory(0,"Caption",QString(),QFileDialog::ShowDirsOnly);
+    qDebug()<<dir;
 }

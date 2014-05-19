@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<NCReport version="2.12.0" name="Untitled" type="report">
+<?xml version='1.0' encoding='UTF-8'?>
+<NCReport version="2.12.0" type="report" name="Untitled">
     <options>
         <encoding>UTF-8</encoding>
         <language>00</language>
@@ -20,41 +20,41 @@
         <htmlBodyStyle>{DEFAULT}</htmlBodyStyle>
     </options>
     <datasources>
-        <datasource id="ttphieuthu" type="sql" openRole="begin" source="static" connection="external" parentID="" connID="gentoo" host="gentoo" database="db_ktx" user="xdien" password="123456" port="" driver="QMYSQL">select * from PT_TIEN_TRO</datasource>
+        <datasource port="" password="123456" connection="external" driver="QMYSQL" connID="gentoo" openRole="begin" host="gentoo" type="sql" database="db_ktx" user="xdien" id="ttphieuthu" source="static" parentID="">select * from PT_TIEN_TRO</datasource>
     </datasources>
     <variables/>
-    <pageheader id="PH" height="133.350">
-        <text id="5F1NO" zValue="0" posX="0.000" posY="0.000" width="169.862" height="9.525" useFont="true" fontName="Arial" fontSize="10" forecolor="#000000">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+    <pageheader height="133.350" id="PH">
+        <text width="169.862" posX="0.000" posY="0.000" height="9.525" fontSize="10" zValue="0" id="5F1NO" forecolor="#000000" useFont="true" fontName="Arial">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Phiếu thu tiền trọ&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</text>
-        <field id="YS7U7" typeId="131074" zValue="1" posX="134.938" posY="17.462" width="31.750" height="4.762" resource="sysvar" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="sys">date</field>
-        <label id="9Z4Q9" zValue="2" posX="96.837" posY="17.462" width="36.512" height="4.762" fontName="Arial" fontSize="10" alignment="1">Đại học cần thơ ,ngày:</label>
-        <label id="GQU4C" zValue="3" posX="11.112" posY="44.450" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Tên sinh viên:</label>
-        <label id="69RNC" zValue="4" posX="11.112" posY="50.800" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Mã số phòng</label>
-        <label id="WM53G" zValue="5" posX="11.112" posY="57.150" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Kỳ(quý):</label>
-        <label id="OL79Q" zValue="6" posX="11.112" posY="63.500" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Chỉ sô tiêu thụ điện</label>
-        <label id="ZEOGU" zValue="7" posX="92.075" posY="63.500" width="19.050" height="4.762" fontName="Arial" fontSize="10" alignment="1">Thành tiền</label>
-        <label id="BXK51" zValue="8" posX="11.112" posY="69.850" width="32.015" height="4.762" fontName="Arial" fontSize="10" alignment="1">Chỉ sô tiêu thụ nước</label>
-        <label id="CBA4Z" zValue="9" posX="92.075" posY="69.850" width="19.050" height="4.762" fontName="Arial" fontSize="10" alignment="1">Thành tiền</label>
-        <label id="MG17Z" zValue="10" posX="11.112" posY="76.200" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Tiền trọ hàng tháng</label>
-        <label id="QGDYP" zValue="11" posX="11.112" posY="82.550" width="34.925" height="4.762" fontName="Arial" fontSize="10" alignment="1">Tổng số tiền phải trả</label>
-        <field id="3XJRE" typeId="131074" zValue="12" posX="47.625" posY="57.150" width="31.750" height="4.762" description="ngay" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">ttphieuthu.ngay</field>
-        <field id="D2BD7" typeId="131074" zValue="13" posX="47.625" posY="63.500" width="31.750" height="4.762" description="cstt_dien" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">ttphieuthu.cstt_dien</field>
-        <field id="SPZ29" typeId="131074" zValue="14" posX="47.625" posY="69.850" width="31.750" height="4.762" description="cstt_nuoc" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">ttphieuthu.cstt_nuoc</field>
-        <field id="E4PVS" zValue="15" posX="47.625" posY="50.800" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">lop</field>
-        <field id="4C7W4" zValue="16" posX="47.625" posY="44.450" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">teten</field>
-        <field id="AA5S5" typeId="131074" zValue="17" posX="47.625" posY="76.200" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" forecolor="#000000" type="txt" ftype="par">ttthang</field>
-        <field id="RPG6J" typeId="131074" zValue="18" posX="47.625" posY="82.550" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" forecolor="#000000" type="txt" ftype="par">tongTien</field>
-        <field id="809FL" typeId="131074" zValue="19" posX="114.300" posY="63.500" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">tien_dien</field>
-        <field id="HMO7F" typeId="131074" zValue="20" posX="114.300" posY="69.850" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">tien_nuoc</field>
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p align="center" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:18pt;">Phiếu thu tiền trọ&lt;/span>&lt;/p>&lt;/body>&lt;/html></text>
+        <field width="31.750" typeId="131074" posX="134.938" posY="17.462" height="4.762" fontSize="10" alignment="1" zValue="1" type="txt" ftype="sys" id="YS7U7" fontName="Arial" resource="sysvar">date</field>
+        <label width="36.512" posX="96.837" posY="17.462" height="4.762" fontSize="10" alignment="1" zValue="2" id="9Z4Q9" fontName="Arial">Đại học cần thơ ,ngày:</label>
+        <label width="31.750" posX="11.112" posY="44.450" height="4.762" fontSize="10" alignment="1" zValue="3" id="GQU4C" fontName="Arial">Tên sinh viên:</label>
+        <label width="31.750" posX="11.112" posY="50.800" height="4.762" fontSize="10" alignment="1" zValue="4" id="69RNC" fontName="Arial">Mã số phòng</label>
+        <label width="31.750" posX="11.112" posY="57.150" height="4.762" fontSize="10" alignment="1" zValue="5" id="WM53G" fontName="Arial">Kỳ(quý):</label>
+        <label width="31.750" posX="11.112" posY="63.500" height="4.762" fontSize="10" alignment="1" zValue="6" id="OL79Q" fontName="Arial">Chỉ sô tiêu thụ điện</label>
+        <label width="19.050" posX="92.075" posY="63.500" height="4.762" fontSize="10" alignment="1" zValue="7" id="ZEOGU" fontName="Arial">Thành tiền</label>
+        <label width="32.015" posX="11.112" posY="69.850" height="4.762" fontSize="10" alignment="1" zValue="8" id="BXK51" fontName="Arial">Chỉ sô tiêu thụ nước</label>
+        <label width="19.050" posX="92.075" posY="69.850" height="4.762" fontSize="10" alignment="1" zValue="9" id="CBA4Z" fontName="Arial">Thành tiền</label>
+        <label width="31.750" posX="11.112" posY="76.200" height="4.762" fontSize="10" alignment="1" zValue="10" id="MG17Z" fontName="Arial">Tiền trọ hàng tháng</label>
+        <label width="34.925" posX="11.112" posY="82.550" height="4.762" fontSize="10" alignment="1" zValue="11" id="QGDYP" fontName="Arial">Tổng số tiền phải trả</label>
+        <field width="31.750" typeId="131074" posX="47.625" description="ngay" posY="57.150" height="4.762" fontSize="10" alignment="1" zValue="12" type="txt" ftype="ds" id="3XJRE" fontName="Arial" resource="datasource">ttphieuthu.ngay</field>
+        <field width="31.750" typeId="131074" posX="47.625" description="cstt_dien" posY="63.500" height="4.762" fontSize="10" alignment="1" zValue="13" type="txt" ftype="ds" id="D2BD7" fontName="Arial" resource="datasource">ttphieuthu.cstt_dien</field>
+        <field width="31.750" typeId="131074" posX="47.625" description="cstt_nuoc" posY="69.850" height="4.762" fontSize="10" alignment="1" zValue="14" type="txt" ftype="ds" id="SPZ29" fontName="Arial" resource="datasource">ttphieuthu.cstt_nuoc</field>
+        <field width="31.750" posX="47.625" posY="50.800" height="4.762" fontSize="10" alignment="1" zValue="15" type="txt" ftype="par" id="E4PVS" fontName="Arial" resource="param">lop</field>
+        <field width="31.750" posX="47.625" posY="44.450" height="4.762" fontSize="10" alignment="1" zValue="16" type="txt" ftype="par" id="4C7W4" fontName="Arial" resource="param">teten</field>
+        <field width="31.750" typeId="131074" posX="47.625" posY="76.200" height="4.762" fontSize="10" alignment="1" zValue="17" type="txt" ftype="par" id="AA5S5" forecolor="#000000" fontName="Arial" resource="param">ttthang</field>
+        <field width="31.750" typeId="131074" posX="47.625" posY="82.550" height="4.762" fontSize="10" alignment="1" zValue="18" type="txt" ftype="par" id="RPG6J" forecolor="#000000" fontName="Arial" resource="param">tongTien</field>
+        <field width="31.750" typeId="131074" posX="114.300" posY="63.500" height="4.762" fontSize="10" alignment="1" zValue="19" type="txt" ftype="par" id="809FL" fontName="Arial" resource="param">tien_dien</field>
+        <field width="31.750" typeId="131074" posX="114.300" posY="69.850" height="4.762" fontSize="10" alignment="1" zValue="20" type="txt" ftype="par" id="HMO7F" fontName="Arial" resource="param">tien_nuoc</field>
     </pageheader>
-    <pagefooter id="PF" height="38.100">
-        <label id="SSFWJ" zValue="0" posX="120.650" posY="3.175" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Cán bộ thu ký tên</label>
+    <pagefooter height="38.100" id="PF">
+        <label width="31.750" posX="120.650" posY="3.175" height="4.762" fontSize="10" alignment="1" zValue="0" id="SSFWJ" fontName="Arial">Cán bộ thu ký tên</label>
     </pagefooter>
     <details>
-        <detail id="Detail1" height="0.000" datasource="ttphieuthu">
+        <detail datasource="ttphieuthu" height="0.000" id="Detail1">
             <items/>
         </detail>
     </details>

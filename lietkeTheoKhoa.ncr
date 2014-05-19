@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<NCReport version="2.12.0" name="Untitled" type="report">
+<?xml version='1.0' encoding='UTF-8'?>
+<NCReport version="2.12.0" type="report" name="Untitled">
     <options>
         <encoding>UTF-8</encoding>
         <language>00</language>
@@ -20,26 +20,26 @@
         <htmlBodyStyle>{DEFAULT}</htmlBodyStyle>
     </options>
     <datasources>
-        <datasource id="DataSource1" type="sql" openRole="begin" source="parameter" connection="external" parentID="" connID="" host="gentoo" database="db_ktx" user="xdien" password="123456" port="" driver="QMYSQL">query</datasource>
+        <datasource port="" password="123456" connection="external" driver="QMYSQL" connID="" openRole="begin" host="gentoo" type="sql" database="db_ktx" user="xdien" id="DataSource1" source="parameter" parentID="">query</datasource>
     </datasources>
     <variables/>
-    <pageheader id="PH" height="20.902">
-        <text id="J85MA" zValue="0" posX="0.000" posY="0.000" width="168.275" height="20.637" resource="param" useFont="true" fontName="Arial" fontSize="10" forecolor="#000000">header</text>
-        <label id="PYRV0" zValue="1" posX="1.587" posY="15.875" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1" bgMode="fb" backcolor="#c0c0c0">Tên</label>
-        <label id="27DQJ" zValue="2" posX="71.438" posY="15.875" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1" bgMode="fb" backcolor="#c0c0c0">Ngày vào ở</label>
-        <label id="JFAJP" zValue="3" posX="106.362" posY="15.875" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1" bgMode="fb" backcolor="#c0c0c0">Ngày đi</label>
-        <label id="BTNEQ" zValue="4" posX="38.100" posY="15.875" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1" bgMode="fb" backcolor="#c0c0c0">Mssv</label>
-        <label id="4N69F" zValue="5" posX="139.700" posY="15.875" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1" bgMode="fb" backcolor="#c0c0c0">TG ở tối đa</label>
+    <pageheader height="20.902" id="PH">
+        <text width="168.275" posX="0.000" posY="0.000" height="20.637" fontSize="10" zValue="0" id="J85MA" forecolor="#000000" useFont="true" fontName="Arial" resource="param">header</text>
+        <label width="31.750" backcolor="#c0c0c0" posX="1.587" bgMode="fb" posY="15.875" height="4.762" fontSize="10" alignment="1" zValue="1" id="PYRV0" fontName="Arial">Tên</label>
+        <label width="31.750" backcolor="#c0c0c0" posX="71.438" bgMode="fb" posY="15.875" height="4.762" fontSize="10" alignment="1" zValue="2" id="27DQJ" fontName="Arial">Ngày vào ở</label>
+        <label width="31.750" backcolor="#c0c0c0" posX="106.362" bgMode="fb" posY="15.875" height="4.762" fontSize="10" alignment="1" zValue="3" id="JFAJP" fontName="Arial">Ngày đi</label>
+        <label width="31.750" backcolor="#c0c0c0" posX="38.100" bgMode="fb" posY="15.875" height="4.762" fontSize="10" alignment="1" zValue="4" id="BTNEQ" fontName="Arial">Mssv</label>
+        <label width="31.750" backcolor="#c0c0c0" posX="139.700" bgMode="fb" posY="15.875" height="4.762" fontSize="10" alignment="1" zValue="5" id="4N69F" fontName="Arial">TG ở tối đa</label>
     </pageheader>
-    <pagefooter id="PF" height="10.000"/>
+    <pagefooter height="10.000" id="PF"/>
     <details>
-        <detail id="Detail1" height="5.556" datasource="DataSource1">
+        <detail datasource="DataSource1" height="5.556" id="Detail1">
             <items>
-                <field id="CC8VQ" zValue="0" posX="1.587" posY="0.000" width="34.925" height="4.762" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource1.ho_ten</field>
-                <field id="9BKTL" zValue="1" posX="38.100" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" type="txt" ftype="ds">DataSource1.mssv</field>
-                <field id="AI3H1" zValue="2" posX="71.438" posY="0.000" width="33.337" height="4.762" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource1.ngay_den</field>
-                <field id="TG5S3" zValue="3" posX="106.362" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource1.ngay_di</field>
-                <field id="D86FJ" zValue="4" posX="139.700" posY="0.000" width="31.750" height="4.762" resource="datasource" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="ds">DataSource1.tg_toi_da</field>
+                <field width="34.925" posX="1.587" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="0" type="txt" ftype="ds" id="CC8VQ" fontName="Arial" resource="datasource">DataSource1.ho_ten</field>
+                <field width="31.750" posX="38.100" posY="0.000" height="4.762" fontSize="10" zValue="1" type="txt" ftype="ds" id="9BKTL" fontName="Arial" resource="datasource">DataSource1.mssv</field>
+                <field width="33.337" posX="71.438" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="2" type="txt" ftype="ds" id="AI3H1" fontName="Arial" resource="datasource">DataSource1.ngay_den</field>
+                <field width="31.750" posX="106.362" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="3" type="txt" ftype="ds" id="TG5S3" fontName="Arial" resource="datasource">DataSource1.ngay_di</field>
+                <field width="31.750" posX="139.700" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="4" type="txt" ftype="ds" id="D86FJ" fontName="Arial" resource="datasource">DataSource1.tg_toi_da</field>
             </items>
         </detail>
     </details>

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<NCReport version="2.12.0" name="Untitled" type="report">
+<?xml version='1.0' encoding='UTF-8'?>
+<NCReport version="2.12.0" type="report" name="Untitled">
     <options>
         <encoding>UTF-8</encoding>
         <language>00</language>
@@ -20,47 +20,47 @@
         <htmlBodyStyle>{DEFAULT}</htmlBodyStyle>
     </options>
     <datasources>
-        <datasource id="DataSource2" type="txt" openRole="begin" source="static" columnDelimiter="tab" encoding="UTF-8">ad</datasource>
+        <datasource password="123456" encoding="UTF-8" openRole="begin" host="gentoo" columnDelimiter="tab" type="txt" database="db_ktx" user="xdien" id="DataSource2" source="static">ad</datasource>
     </datasources>
     <variables/>
-    <pageheader id="PH" height="59.000">
-        <text id="PHCPT" zValue="0" posX="0.000" posY="0.000" width="171.450" height="17.462" useFont="true" fontName="Arial" fontSize="10" forecolor="#000000">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+    <pageheader height="59.000" id="PH">
+        <text width="171.450" posX="0.000" posY="0.000" height="17.462" fontSize="10" zValue="0" id="PHCPT" forecolor="#000000" useFont="true" fontName="Arial">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Liberation Serif'; font-size:16pt;&quot;&gt;CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Liberation Serif'; font-size:16pt;&quot;&gt;Độc Lập-Tự Do-Hạnh Phúc&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</text>
-        <text id="FFC5S" zValue="1" posX="57.150" posY="22.225" width="60.325" height="7.938" useFont="true" fontName="Arial" fontSize="10" forecolor="#000000">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p align="center" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-family:'Liberation Serif'; font-size:16pt;">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM&lt;/span>&lt;/p>
+&lt;p align="center" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-family:'Liberation Serif'; font-size:16pt;">Độc Lập-Tự Do-Hạnh Phúc&lt;/span>&lt;/p>&lt;/body>&lt;/html></text>
+        <text width="60.325" posX="57.150" posY="22.225" height="7.938" fontSize="10" zValue="1" id="FFC5S" forecolor="#000000" useFont="true" fontName="Arial">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Linux Libertine Display'; font-size:14pt;&quot;&gt;HỢP ĐỒNG KÝ TÚC XÁ&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</text>
-        <field id="AIW5X" typeId="131074" zValue="2" posX="23.812" posY="36.512" width="31.750" height="4.762" resource="sysvar" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="sys">date</field>
-        <label id="GRW6B" zValue="3" posX="11.112" posY="36.512" width="11.112" height="4.762" fontName="Arial" fontSize="10" alignment="1">Ngày:</label>
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-family:'Linux Libertine Display'; font-size:14pt;">HỢP ĐỒNG KÝ TÚC XÁ&lt;/span>&lt;/p>&lt;/body>&lt;/html></text>
+        <field width="31.750" typeId="131074" posX="23.812" posY="36.512" height="4.762" fontSize="10" alignment="1" zValue="2" type="txt" ftype="sys" id="AIW5X" fontName="Arial" resource="sysvar">date</field>
+        <label width="11.112" posX="11.112" posY="36.512" height="4.762" fontSize="10" alignment="1" zValue="3" id="GRW6B" fontName="Arial">Ngày:</label>
     </pageheader>
-    <pagefooter id="PF" height="19.840">
-        <label id="92I5W" zValue="0" posX="9.525" posY="0.000" width="38.100" height="4.762" fontName="Arial" fontSize="10" alignment="1">Sinh viên ký tên</label>
-        <label id="LGAFE" zValue="1" posX="127.000" posY="0.000" width="38.100" height="7.938" fontName="Arial" fontSize="10" alignment="1">Cán bộ lập hợp đồng</label>
+    <pagefooter height="19.840" id="PF">
+        <label width="38.100" posX="9.525" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="0" id="92I5W" fontName="Arial">Sinh viên ký tên</label>
+        <label width="38.100" posX="127.000" posY="0.000" height="7.938" fontSize="10" alignment="1" zValue="1" id="LGAFE" fontName="Arial">Cán bộ lập hợp đồng</label>
     </pagefooter>
     <details>
-        <detail id="Detail1" height="53.710" datasource="DataSource2">
+        <detail datasource="DataSource2" height="53.710" id="Detail1">
             <items>
-                <label id="8PWEM" zValue="0" posX="9.525" posY="4.762" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Họ tên sinh viên:</label>
-                <label id="BDUXP" zValue="1" posX="9.525" posY="17.462" width="39.688" height="4.762" fontName="Arial" fontSize="10" alignment="1">Lớp</label>
-                <label id="WKZDR" zValue="2" posX="9.525" posY="11.112" width="31.750" height="4.762" fontName="Arial" fontSize="10" alignment="1">Mã số sinh viên</label>
-                <label id="KPYZN" zValue="3" posX="9.525" posY="23.812" width="39.688" height="4.762" fontName="Arial" fontSize="10" alignment="1">Phòng trong ký túc xá</label>
-                <text id="WZ35D" zValue="4" posX="7.938" posY="49.212" width="147.637" height="5.027" useFont="true" fontName="Arial" fontSize="10" forecolor="#000000">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+                <label width="31.750" posX="9.525" posY="4.762" height="4.762" fontSize="10" alignment="1" zValue="0" id="8PWEM" fontName="Arial">Họ tên sinh viên:</label>
+                <label width="39.688" posX="9.525" posY="17.462" height="4.762" fontSize="10" alignment="1" zValue="1" id="BDUXP" fontName="Arial">Lớp</label>
+                <label width="31.750" posX="9.525" posY="11.112" height="4.762" fontSize="10" alignment="1" zValue="2" id="WKZDR" fontName="Arial">Mã số sinh viên</label>
+                <label width="39.688" posX="9.525" posY="23.812" height="4.762" fontSize="10" alignment="1" zValue="3" id="KPYZN" fontName="Arial">Phòng trong ký túc xá</label>
+                <text width="147.637" posX="7.938" posY="49.212" height="5.027" fontSize="10" zValue="4" id="WZ35D" forecolor="#000000" useFont="true" fontName="Arial">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Em xin thực hiện đúng theo nôi quy của trường, và quy định của ký túc xá.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</text>
-                <label id="4ZYET" zValue="5" posX="9.525" posY="30.162" width="39.688" height="4.762" fontName="Arial" fontSize="10" alignment="1">Thời hạn hợp đồng đến:</label>
-                <field id="MZ9KY" typeId="131074" zValue="6" posX="66.675" posY="4.762" width="50.800" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">ten</field>
-                <field id="CWEG2" typeId="131074" zValue="7" posX="66.675" posY="11.112" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">mssv</field>
-                <field id="70H5U" typeId="131074" zValue="8" posX="66.675" posY="23.812" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">phong</field>
-                <field id="AEW90" typeId="131074" zValue="9" posX="66.675" posY="17.462" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">lop</field>
-                <field id="TUG3P" typeId="131074" zValue="10" posX="66.675" posY="30.162" width="31.750" height="4.762" resource="param" fontName="Arial" fontSize="10" alignment="1" type="txt" ftype="par">thoihan</field>
-                <image id="AIN4E" zValue="11" posX="131.762" posY="4.762" width="30.162" height="31.750" resource="param" aspectRatio="keep" format="0" alignment="1">img_path</image>
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Em xin thực hiện đúng theo nôi quy của trường, và quy định của ký túc xá.&lt;/p>&lt;/body>&lt;/html></text>
+                <label width="39.688" posX="9.525" posY="30.162" height="4.762" fontSize="10" alignment="1" zValue="5" id="4ZYET" fontName="Arial">Thời hạn hợp đồng đến:</label>
+                <field width="50.800" typeId="131074" posX="66.675" posY="4.762" height="4.762" fontSize="10" alignment="1" zValue="6" type="txt" ftype="par" id="MZ9KY" fontName="Arial" resource="param">ten</field>
+                <field width="31.750" typeId="131074" posX="66.675" posY="11.112" height="4.762" fontSize="10" alignment="1" zValue="7" type="txt" ftype="par" id="CWEG2" fontName="Arial" resource="param">mssv</field>
+                <field width="31.750" typeId="131074" posX="66.675" posY="23.812" height="4.762" fontSize="10" alignment="1" zValue="8" type="txt" ftype="par" id="70H5U" fontName="Arial" resource="param">phong</field>
+                <field width="31.750" typeId="131074" posX="66.675" posY="17.462" height="4.762" fontSize="10" alignment="1" zValue="9" type="txt" ftype="par" id="AEW90" fontName="Arial" resource="param">lop</field>
+                <field width="31.750" typeId="131074" posX="66.675" posY="30.162" height="4.762" fontSize="10" alignment="1" zValue="10" type="txt" ftype="par" id="TUG3P" fontName="Arial" resource="param">thoihan</field>
+                <image width="30.162" posX="131.762" format="0" posY="4.762" height="31.750" alignment="1" zValue="11" id="AIN4E" resource="param" aspectRatio="keep">img_path</image>
             </items>
         </detail>
     </details>

@@ -6,8 +6,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     config_sqlconnect n;
-    n.connectsql();//init connect sql before
-    qDebug()<<n.db.connectionName();
+    n.connectsql();//init connection
     MainWindow w;
     w.show();
     return a.exec();
