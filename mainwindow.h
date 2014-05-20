@@ -105,6 +105,10 @@ private slots:
     void on_pushButton_15_clicked();
 
     void on_pushButton_16_clicked();
+
+
+    void on_actionQuy_triggered();
+
 private:
     void loadpage();
     void p_display(const int donghienthi, int toantu, const QString tablename);
@@ -123,6 +127,8 @@ private:
     //set combobox
     void setcombobox(QString madc);
     void loadtabSV(const QModelIndex &index);
+    QDate date;
+    bool tm;
 };
 
 #endif // MAINWINDOW_H

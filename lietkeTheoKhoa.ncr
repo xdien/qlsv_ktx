@@ -36,7 +36,7 @@
         <detail datasource="DataSource1" height="5.556" id="Detail1">
             <items>
                 <field width="34.925" posX="1.587" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="0" type="txt" ftype="ds" id="CC8VQ" fontName="Arial" resource="datasource">DataSource1.ho_ten</field>
-                <field width="31.750" posX="38.100" posY="0.000" height="4.762" fontSize="10" zValue="1" type="txt" ftype="ds" id="9BKTL" fontName="Arial" resource="datasource">DataSource1.mssv</field>
+                <field width="31.750" posX="38.100" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="1" type="txt" ftype="ds" id="9BKTL" fontName="Arial" resource="datasource">DataSource1.mssv</field>
                 <field width="33.337" posX="71.438" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="2" type="txt" ftype="ds" id="AI3H1" fontName="Arial" resource="datasource">DataSource1.ngay_den</field>
                 <field width="31.750" posX="106.362" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="3" type="txt" ftype="ds" id="TG5S3" fontName="Arial" resource="datasource">DataSource1.ngay_di</field>
                 <field width="31.750" posX="139.700" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="4" type="txt" ftype="ds" id="D86FJ" fontName="Arial" resource="datasource">DataSource1.tg_toi_da</field>

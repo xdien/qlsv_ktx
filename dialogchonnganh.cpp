@@ -47,7 +47,7 @@ void dialogChonNganh::on_buttonBox_accepted()
     report->setReportSource( NCReportSource::File ); // set report source type
     report->setReportFile("/home/xdien/ProjectsQT/qlsv_ktx/lietkeTheoKhoa.ncr"); //set the report filename fullpath or relative to di
     QString  query,htmlText;
-    query = "select SINH_VIEN.ho_ten,SINH_VIEN.mssv,HOP_DONG.tg_toi_da,HOP_DONG.tg_toi_da,HOP_DONG.ngay_den,HOP_DONG.ngay_di from NGANH "\
+    query = "select distinct SINH_VIEN.ho_ten,SINH_VIEN.mssv,HOP_DONG.tg_toi_da,HOP_DONG.tg_toi_da,HOP_DONG.ngay_den,HOP_DONG.ngay_di from NGANH "\
             "right join LOP "\
             "on LOP.ma_nganh = NGANH.ma_nganh "\
             "right join SINH_VIEN "\

@@ -20,7 +20,7 @@
         <htmlBodyStyle>{DEFAULT}</htmlBodyStyle>
     </options>
     <datasources>
-        <datasource port="" password="123456" connection="external" driver="QMYSQL" connID="" openRole="begin" host="gentoo" type="sql" database="db_ktx" user="xdien" id="DataSource2" source="static" parentID="">select SINH_VIEN.ho_ten,SINH_VIEN.mssv,HOP_DONG.ma_phong,HOP_DONG.tg_toi_da from PHONG
+        <datasource port="" password="123456" connection="external" driver="QMYSQL" connID="" openRole="begin" host="gentoo" type="sql" database="db_ktx" user="xdien" id="DataSource2" source="static" parentID="">select distinct SINH_VIEN.ho_ten,SINH_VIEN.mssv,HOP_DONG.ma_phong,HOP_DONG.tg_toi_da from PHONG
 left join HOP_DONG on PHONG.ma_phong = HOP_DONG.ma_phong
 left join SINH_VIEN on SINH_VIEN.mssv = HOP_DONG.mssv</datasource>
     </datasources>
@@ -43,7 +43,7 @@ p, li { white-space: pre-wrap; }
                 <field width="31.750" typeId="131074" posX="85.725" description="mssv" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="0" type="txt" ftype="ds" id="46JJZ" fontName="Arial" resource="datasource">DataSource2.mssv</field>
                 <field width="31.750" posX="47.625" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="1" type="txt" ftype="ds" id="96G74" fontName="Arial" resource="datasource">DataSource2.ho_ten</field>
                 <field width="31.750" posX="0.000" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="2" type="txt" ftype="ds" id="SYJ36" fontName="Arial" resource="datasource">DataSource2.ma_phong</field>
-                <field width="31.750" posX="125.412" posY="0.000" height="4.762" fontSize="10" zValue="3" type="txt" ftype="ds" id="TBZNG" fontName="Arial" resource="datasource">DataSource2.tg_toi_da</field>
+                <field width="31.750" posX="125.412" posY="0.000" height="4.762" fontSize="10" alignment="1" zValue="3" type="txt" ftype="ds" id="TBZNG" fontName="Arial" resource="datasource">DataSource2.tg_toi_da</field>
             </items>
         </detail>
     </details>

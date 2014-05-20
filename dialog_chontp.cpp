@@ -49,7 +49,7 @@ void dialog_chonTP::on_buttonBox_accepted()
     report->setReportSource( NCReportSource::File ); // set report source type
     report->setReportFile("/home/xdien/ProjectsQT/qlsv_ktx/lietkeTheoTP.ncr"); //set the report filename fullpath or relative to di
     QString  query,htmlText;
-    query = "select SINH_VIEN.ho_ten,SINH_VIEN.mssv,HOP_DONG.tg_toi_da,HOP_DONG.tg_toi_da,HOP_DONG.ngay_den,HOP_DONG.ngay_di from province "\
+    query = "select distinct SINH_VIEN.ho_ten,SINH_VIEN.mssv,HOP_DONG.tg_toi_da,HOP_DONG.tg_toi_da,HOP_DONG.ngay_den,HOP_DONG.ngay_di from province "\
             "right join DC_CUASV "\
             "on DC_CUASV.provinceid = province.provinceid "\
             "right join SINH_VIEN "\

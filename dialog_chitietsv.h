@@ -25,11 +25,12 @@ public:
     QSqlQuery query;
 
     //them model
-    QSqlQueryModel *querymodel, *querymodel1;
+    QSqlQueryModel *querymodelLTS, *querymodel1;
     void setvalue(QString st);
 private slots:
 
 private:
+    QString maxp,maqh,matp, diachi;
     Ui::Dialog_chitietSV *ui;
 };
 

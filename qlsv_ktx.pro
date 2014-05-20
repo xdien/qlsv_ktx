@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     form_liststbyphong.cpp \
     dialog_chontp.cpp \
     dialog_chonkhoa.cpp \
-    dialogchonnganh.cpp
+    dialogchonnganh.cpp \
+    dialog_chonquy.cpp
 
 HEADERS  += mainwindow.h \
     dialog_chitietsv.h \
@@ -40,7 +41,8 @@ HEADERS  += mainwindow.h \
     dialog_chontp.h \
     dialog_chonkhoa.h \
     dialogchonnganh.h \
-    listtable.h
+    listtable.h \
+    dialog_chonquy.h
 
 FORMS    += mainwindow.ui \
     dialog_chitietsv.ui \
@@ -52,7 +54,8 @@ FORMS    += mainwindow.ui \
     form_liststbyphong.ui \
     dialog_chontp.ui \
     dialog_chonkhoa.ui \
-    dialogchonnganh.ui
+    dialogchonnganh.ui \
+    dialog_chonquy.ui
 
 RESOURCES += \
     libIcons.qrc

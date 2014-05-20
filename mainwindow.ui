@@ -30,7 +30,7 @@
        <string notr="true">border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(245, 224, 176, 255), stop:0.09 rgba(246, 189, 237, 255), stop:0.14 rgba(194, 207, 246, 255), stop:0.19 rgba(184, 160, 168, 255), stop:0.25 rgba(171, 186, 248, 255), stop:0.32 rgba(243, 248, 224, 255), stop:0.385 rgba(249, 162, 183, 255), stop:0.47 rgba(100, 115, 124, 255), stop:0.58 rgba(251, 205, 202, 255), stop:0.65 rgba(170, 128, 185, 255), stop:0.75 rgba(252, 222, 204, 255), stop:0.805 rgba(206, 122, 218, 255), stop:0.86 rgba(254, 223, 175, 255), stop:0.91 rgba(254, 236, 244, 255), stop:1 rgba(255, 191, 221, 255));</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -798,6 +798,37 @@
                </property>
               </widget>
              </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="label_mssvTT">
+               <property name="styleSheet">
+                <string notr="true">font: 75 10pt &quot;Sans Serif&quot;;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="label_sttpt">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLabel" name="label_stthd">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLabel" name="label_quy">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
             </layout>
            </item>
            <item>
@@ -905,6 +936,7 @@
     <addaction name="actionTh_ng_k_theo_ti_nh_tha_nh"/>
     <addaction name="actionKhoa"/>
     <addaction name="actionTheo_nga_nh"/>
+    <addaction name="actionQuy"/>
    </widget>
    <addaction name="menuExit"/>
    <addaction name="menuS_a_i_t_ng"/>
@@ -915,7 +947,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset>
+    <iconset resource="libIcons.qrc">
      <normaloff>:/newPrefix/lib-icons/Windows Icons/exit.png</normaloff>:/newPrefix/lib-icons/Windows Icons/exit.png</iconset>
    </property>
    <property name="text">
@@ -927,7 +959,7 @@
   </action>
   <action name="actionCai_dat">
    <property name="icon">
-    <iconset>
+    <iconset resource="libIcons.qrc">
      <normaloff>:/newPrefix/lib-icons/Windows Icons/Gear.ico</normaloff>:/newPrefix/lib-icons/Windows Icons/Gear.ico</iconset>
    </property>
    <property name="text">
@@ -939,7 +971,7 @@
   </action>
   <action name="actionTim_kiem">
    <property name="icon">
-    <iconset>
+    <iconset resource="libIcons.qrc">
      <normaloff>:/newPrefix/lib-icons/Windows Icons/Magnifying Glass.ico</normaloff>:/newPrefix/lib-icons/Windows Icons/Magnifying Glass.ico</iconset>
    </property>
    <property name="text">
@@ -981,7 +1013,7 @@
   </action>
   <action name="actionXemtheophong">
    <property name="icon">
-    <iconset>
+    <iconset resource="libIcons.qrc">
      <normaloff>:/newPrefix/lib-icons/Windows Icons/Door.ico</normaloff>:/newPrefix/lib-icons/Windows Icons/Door.ico</iconset>
    </property>
    <property name="text">
@@ -1014,6 +1046,11 @@
     <string>Theo ngành</string>
    </property>
   </action>
+  <action name="actionQuy">
+   <property name="text">
+    <string>Quy</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
@@ -1038,6 +1075,8 @@
   <tabstop>comboBox_lopSv</tabstop>
   <tabstop>pushButton</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="libIcons.qrc"/>
+ </resources>
  <connections/>
 </ui>
