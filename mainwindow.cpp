@@ -52,7 +52,7 @@ void MainWindow::on_pushButton_clicked()
                                             QMessageBox::Yes|QMessageBox::No);
             if(reply == QMessageBox::Yes)
             {
-                tempst1 = "update SINH_VIEN set ten_lop = '"+ui->comboBox_lopSv->itemText(ui->comboBox_lopSv->currentIndex())+"',ho_ten = '"+ui->lineEdit_hotenSV->text()+"', sdt='" \
+                tempst1 = "update SINH_VIEN set ten_lop = '"+ui->comboBox_lopSv->itemData(ui->comboBox_lopSv->currentIndex()).toString()+"',ho_ten = '"+ui->lineEdit_hotenSV->text()+"', sdt='" \
                         +ui->lineEdit_sdtSV->text()+"', gioi_tinh = '"+QString::number(tempint)+"', ngay_sinh='"+ui->dateEdit_ngaysinh->date().toString("yyyy-MM-dd")+"', img_path ='"+linkimg+"' where " \
                         "mssv='"+tempst+"'";
                 if(!truyvanmoi.exec(tempst1))
@@ -79,11 +79,10 @@ void MainWindow::on_pushButton_clicked()
             }
         }
         else{
-            tempst1 = "insert into SINH_VIEN values ('" +ui->lineEdit_mssvSV->text()+"','"+ui->comboBox_lopSv->itemText(ui->comboBox_lopSv->currentIndex())+"','"+ui->lineEdit_hotenSV->text()+"','" \
+            tempst1 = "insert into SINH_VIEN values ('" +ui->lineEdit_mssvSV->text()+"','"+ui->comboBox_lopSv->itemData(ui->comboBox_lopSv->currentIndex()).toString()+"','"+ui->lineEdit_hotenSV->text()+"','" \
                     +ui->lineEdit_sdtSV->text()+"', '"+QString::number(tempint)+"','"+ui->dateEdit_ngaysinh->date().toString("yyyy-MM-dd")+"','"+linkimg+"')";
             truyvanmoi.exec(tempst1);
-            //set dia chi
-            qDebug()<< ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString().isEmpty();
+            //set dia chi moi
             if(ui->comboBox_xp->itemData(ui->comboBox_xp->currentIndex()).toString().isEmpty())
             {
                 //neu province rong
@@ -116,13 +115,11 @@ void MainWindow::on_actionThoat_triggered()
 void MainWindow::on_comboxLop_tabHopdong_activated(int index)
 {
     //query lop roi dua vao combox
-    QSqlQuery query;
-    QString text;
     ui->comboBoxSV_tabHD->clear();
-    text = ui->comboxLop_tabHopdong->itemText(index);
-    qDebug() << query.exec("select mssv,ho_ten from SINH_VIEN where ten_lop='"+text+"'");
-    while (query.next()) {
-        ui->comboBoxSV_tabHD->addItem(query.value(1).toString(),query.value(0));
+    newq.exec("select mssv,ho_ten from SINH_VIEN where ten_lop='"+ui->comboBox_lopSv->itemData(index).toString()+"'");
+    qDebug()<< newq.lastQuery();
+    while (newq.next()) {
+        ui->comboBoxSV_tabHD->addItem(newq.value(1).toString(),newq.value(0));
     }
 }
 
@@ -144,7 +141,7 @@ void MainWindow::on_actionTim_kiem_triggered()
 
 //tao ham loadpage
 void MainWindow::loadpage()
-{
+{   
     QRegExp rx("[0][1,9][0,1,2,3,4,6,7.9]\\d{1,8}");
     QValidator *validator = new QRegExpValidator(rx, this);
     ui->lineEdit_sdtSV->setValidator(validator);
@@ -160,14 +157,10 @@ void MainWindow::loadpage()
     ui->listView_sv->setModel(&modelInfosv);
     //
     QSqlQuery query;
-    QString val1;
-    query.exec("select ten_lop from LOP");
+    query.exec("select * from LOP");
     while (query.next()) {
-        //lop
-        val1 = query.value(0).toString();
         //ui->comboBox->addItem(val1);
-        ui->comboxLop_tabHopdong->addItem(val1);
-        ui->comboBox_lopSv->addItem(val1);
+        ui->comboBox_lopSv->addItem(query.value(2).toString(),query.value(0).toString());
     }
     /*day nha va phong*/
     query.clear();
@@ -316,6 +309,13 @@ void MainWindow::on_action_i_t_ng_triggered()
 void MainWindow::on_pushButton_dlsv_clicked()
 {
     //Ham xoa 1 sinh vien
+    if(newq.exec("delete from SINH_VIEN where mssv = '"+ui->listView_sv->model()->data(ui->listView_sv->currentIndex()).toString()+"'"))
+    {
+        QMessageBox thanhconga;
+        thanhconga.setText(QString::fromUtf8("Da xoa thanh cong"));
+        thanhconga.exec();
+        modelInfosv.setQuery("select * from SINH_VIEN limit "+QString::number(giatrispibox)+","+QString::number(ui->spinBox->value()));
+    }
 }
 void MainWindow::setcombobox(QString madc)
 {
@@ -372,20 +372,22 @@ void MainWindow::on_tabWidget_currentChanged(int index)
     //neu index thay doi bang = 1 thi chon load lop + ten sv vao combobx
     if(index ==1 )
     {
+        //cac ham tinh date
         date = QDate::currentDate();
         ui->dateEdit_ngadk->setDate(date);
-        QRegExp rxdk("[1,2,3][0-9]/[0,1][0-9]/[2][0]\\d{1,2}");
+        ui->dateEdit_thoihan->setDate(date.addYears(1));//thoi han ddang ky hop dong la 1 nam
+        QRegExp rxdk("[0,1,2,3][0-9]/[0,1][0-9]/[2][0]\\d{1,2}");
         QRegExpValidator *validator = new QRegExpValidator(rxdk,this);
         ui->lineEdit_Ngaydi->setValidator(validator);
         ui->spinBox_2->setValue(ui->spinBox->value());
-        modelHopdong.setQuery("select SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten")+"',HOP_DONG.tg_toi_da as '"+QString::fromUtf8("Thoi hang")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv");
+        modelHopdong.setQuery("select distinct SINH_VIEN.ho_ten as '"+QString::fromUtf8("Ho ten")+"',HOP_DONG.tg_toi_da as '"+QString::fromUtf8("Thoi hang")+"' from SINH_VIEN, HOP_DONG where SINH_VIEN.mssv = HOP_DONG.mssv");
 
         ui->treeView->setModel(&modelHopdong);
         ui->comboxLop_tabHopdong->clear();
         newq.exec("select * from LOP");
         while(newq.next())
         {
-            ui->comboxLop_tabHopdong->addItem(newq.value(0).toString());
+            ui->comboxLop_tabHopdong->addItem(newq.value(2).toString(),newq.value(0).toString());
         }
         //lay thong tin phong
         ui->comboBoxPhong_tabHD->clear();
@@ -398,21 +400,11 @@ void MainWindow::on_tabWidget_currentChanged(int index)
     if(index == 2)
     {
         ui->spinBox_3->setValue(ui->spinBox->value());
-        modelTT.setQuery("select HOP_DONG.mssv,PT_TIEN_TRO.ngay from PT_TIEN_TRO left join HOP_DONG on PT_TIEN_TRO.stt_hd = HOP_DONG.stt_hd limit 0,"+QString::number(ui->spinBox_3->value()));
+        modelTT.setQuery("select distinct HOP_DONG.mssv,PT_TIEN_TRO.ngay from PT_TIEN_TRO left join HOP_DONG on PT_TIEN_TRO.stt_hd = HOP_DONG.stt_hd limit 0,"+QString::number(ui->spinBox_3->value()));
         ui->treeView_thanhtoan->setModel(&modelTT);
     }
 }
 
-void MainWindow::on_comboxLop_tabHopdong_activated(const QString &arg1)
-{
-    //neu click vao combobox thi load sinh vien thuoc lop do
-    newq.clear();
-    ui->comboBoxSV_tabHD->clear();
-    newq.exec("select * from SINH_VIEN where ten_lop ='"+arg1+"'");
-    while (newq.next()) {
-        ui->comboBoxSV_tabHD->addItem(newq.value(2).toString(),newq.value(0).toString());
-    }
-}
 
 void MainWindow::loadtabSV(const QModelIndex &index)
 {
@@ -439,9 +431,9 @@ void MainWindow::loadtabSV(const QModelIndex &index)
         ui->comboBox_lopSv->clear();
         while(newq.next())
         {
-            ui->comboBox_lopSv->addItem(newq.value(0).toString());
+            ui->comboBox_lopSv->addItem(newq.value(2).toString(),newq.value(0).toString());
         }
-        ui->comboBox_lopSv->setCurrentIndex(ui->comboBox_lopSv->findText(tempst));
+        ui->comboBox_lopSv->setCurrentIndex(ui->comboBox_lopSv->findData(tempst));
         //truy van dia chi
         ui->comboBox_xp->clear();
         newq.exec("select * from DC_CUASV where mssv = '"+ui->listView_sv->currentIndex().sibling(index.row(),0).data().toString()+"'");
@@ -543,8 +535,9 @@ void MainWindow::on_actionL_p_triggered()
 
 void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
-    modelTT.setQuery("select mssv,ngay from PT_TIEN_TRO " \
-                    "where mssv like '%"+arg1+"%' order by ngay desc");
+    modelTT.setQuery("select HOP_DONG.mssv,ngay from PT_TIEN_TRO left join HOP_DONG on HOP_DONG.stt_hd = PT_TIEN_TRO.stt_hd " \
+                    "where HOP_DONG.mssv like '%"+arg1+"%' order by ngay desc");
+    qDebug()<<modelTT.lastError().text();
 }
 
 
@@ -881,4 +874,9 @@ void MainWindow::on_actionQuy_triggered()
 {
     dialog_chonquy chonquy(this);
     chonquy.exec();
+}
+
+void MainWindow::on_dateEdit_ngadk_dateChanged(const QDate &date)
+{
+    ui->dateEdit_thoihan->setDate(date.addYears(1));
 }

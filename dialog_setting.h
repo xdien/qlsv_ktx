@@ -25,6 +25,7 @@ private slots:
 
     void on_toolButton_clicked();
 
+
 private:
     QString host,user,pass,db,dir;
     void write_configXML(const QString fileName);

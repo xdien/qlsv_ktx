@@ -43,7 +43,6 @@ dialog_chonquy::~dialog_chonquy()
 
 void dialog_chonquy::on_buttonBox_accepted()
 {
-    qDebug()<<ui->radioButton->isChecked()<<ui->radioButton_2->isChecked();
     if(ui->radioButton->isChecked() || ui->radioButton_2->isChecked())
     {
         NCReport *report = new NCReport();
@@ -57,25 +56,25 @@ void dialog_chonquy::on_buttonBox_accepted()
                 query = "select * from HOP_DONG "\
                         "left join SINH_VIEN "\
                         "on SINH_VIEN.mssv = HOP_DONG.mssv "\
-                        "where ngay_di in ('0000-00-00') and HOP_DONG.ngay_den between '"+ui->lineEdit->text()+"-01-01' and '"+ui->lineEdit->text()+"-03-30'";
+                        "where ngay_di in ('0000-00-00') and HOP_DONG.ngay_den between '"+QString::number(ui->dateEdit->date().year())+"-01-01' and '"+QString::number(ui->dateEdit->date().year())+"-03-30'";
                 break;
             case 2:
                 query = "select * from HOP_DONG "\
                         "left join SINH_VIEN "\
                         "on SINH_VIEN.mssv = HOP_DONG.mssv "\
-                        "where ngay_di in ('0000-00-00') and HOP_DONG.ngay_den between '"+ui->lineEdit->text()+"-04-01' and '"+ui->lineEdit->text()+"-06-30'";
+                        "where ngay_di in ('0000-00-00') and HOP_DONG.ngay_den between '"+QString::number(ui->dateEdit->date().year())+"-04-01' and '"+QString::number(ui->dateEdit->date().year())+"-06-30'";
                 break;
             case 3:
                 query = "select * from HOP_DONG "\
                         "left join SINH_VIEN "\
                         "on SINH_VIEN.mssv = HOP_DONG.mssv "\
-                        "where ngay_di in ('0000-00-00') and HOP_DONG.ngay_den between '"+ui->lineEdit->text()+"-07-01' and '"+ui->lineEdit->text()+"-09-30'";
+                        "where ngay_di in ('0000-00-00') and HOP_DONG.ngay_den between '"+QString::number(ui->dateEdit->date().year())+"-07-01' and '"+QString::number(ui->dateEdit->date().year())+"-09-30'";
                 break;
             case 4:
                 query = "select * from HOP_DONG "\
                         "left join SINH_VIEN "\
                         "on SINH_VIEN.mssv = HOP_DONG.mssv "\
-                        "where ngay_di in ('0000-00-00') and HOP_DONG.ngay_den between '"+ui->lineEdit->text()+"-10-01' and '"+ui->lineEdit->text()+"-12-31'";
+                        "where ngay_di in ('0000-00-00') and HOP_DONG.ngay_den between '"+QString::number(ui->dateEdit->date().year())+"-10-01' and '"+QString::number(ui->dateEdit->date().year())+"-12-31'";
                 break;
             default:
                 break;
@@ -88,25 +87,25 @@ void dialog_chonquy::on_buttonBox_accepted()
                 query = "select * from HOP_DONG "\
                         "left join SINH_VIEN "\
                         "on SINH_VIEN.mssv = HOP_DONG.mssv "\
-                        "where HOP_DONG.ngay_di between '"+ui->lineEdit->text()+"-01-01' and '"+ui->lineEdit->text()+"-03-30' and  HOP_DONG.mssv not in (select mssv from HOP_DONG where ngay_di in ('0000-00-00'))";
+                        "where HOP_DONG.ngay_di between '"+QString::number(ui->dateEdit->date().year())+"-01-01' and '"+QString::number(ui->dateEdit->date().year())+"-03-30' and  HOP_DONG.mssv not in (select mssv from HOP_DONG where ngay_di in ('0000-00-00'))";
                 break;
             case 2:
                 query = "select * from HOP_DONG "\
                         "left join SINH_VIEN "\
                         "on SINH_VIEN.mssv = HOP_DONG.mssv "\
-                        "where HOP_DONG.ngay_di between '"+ui->lineEdit->text()+"-04-01' and '"+ui->lineEdit->text()+"-06-30' and  HOP_DONG.mssv not in (select mssv from HOP_DONG where ngay_di in ('0000-00-00'))";
+                        "where HOP_DONG.ngay_di between '"+QString::number(ui->dateEdit->date().year())+"-04-01' and '"+QString::number(ui->dateEdit->date().year())+"-06-30' and  HOP_DONG.mssv not in (select mssv from HOP_DONG where ngay_di in ('0000-00-00'))";
                 break;
             case 3:
                 query = "select * from HOP_DONG "\
                         "left join SINH_VIEN "\
                         "on SINH_VIEN.mssv = HOP_DONG.mssv "\
-                        "where HOP_DONG.ngay_di between '"+ui->lineEdit->text()+"-07-01' and '"+ui->lineEdit->text()+"-09-30' and  HOP_DONG.mssv not in (select mssv from HOP_DONG where ngay_di in ('0000-00-00'))";
+                        "where HOP_DONG.ngay_di between '"+QString::number(ui->dateEdit->date().year())+"-07-01' and '"+QString::number(ui->dateEdit->date().year())+"-09-30' and  HOP_DONG.mssv not in (select mssv from HOP_DONG where ngay_di in ('0000-00-00'))";
                 break;
             case 4:
                 query = "select * from HOP_DONG "\
                         "left join SINH_VIEN "\
                         "on SINH_VIEN.mssv = HOP_DONG.mssv "\
-                        "where HOP_DONG.ngay_di between '"+ui->lineEdit->text()+"-10-01' and '"+ui->lineEdit->text()+"-12-31' and  HOP_DONG.mssv not in (select mssv from HOP_DONG where ngay_di in ('0000-00-00'))";
+                        "where HOP_DONG.ngay_di between '"+QString::number(ui->dateEdit->date().year())+"-10-01' and '"+QString::number(ui->dateEdit->date().year())+"-12-31' and  HOP_DONG.mssv not in (select mssv from HOP_DONG where ngay_di in ('0000-00-00'))";
                 break;
             default:
                 break;
@@ -118,7 +117,8 @@ void dialog_chonquy::on_buttonBox_accepted()
                 "p, li { white-space: pre-wrap; }\n "\
                 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\"> \n"\
                 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Arial'; font-size:18pt; font-weight:600;\"> \n"\
-                +QString::fromUtf8("THỐNG KÊ Q ")+ui->comboBox->currentText()+"</span></p></body></html>";
+                +QString::fromUtf8("THỐNG KÊ QUÝ ")+ui->comboBox->currentText()+"<br />"+QString::fromUtf8("Năm ")+" "+QString::number(ui->dateEdit->date().year())+"</span></p></body></html>";
+        report->addParameter("header",htmlText);
         report->addParameter("header",htmlText);
         report->addParameter("query",query);//set val query for report;
         report->runReportToPreview(); // run to preview output
@@ -141,5 +141,11 @@ void dialog_chonquy::on_buttonBox_accepted()
             pv->exec();  // run like modal dialog
         }
         delete report;
+    }
+    else
+    {
+        QMessageBox chuaChon;
+        chuaChon.setText(QString::fromUtf8("Hay chon mot kieu!"));
+        chuaChon.exec();
     }
 }

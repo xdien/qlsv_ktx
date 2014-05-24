@@ -48,8 +48,6 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
-    void on_comboxLop_tabHopdong_activated(const QString &arg1);
-
     void on_toolButton_clicked();
 
     void on_actionXemtheophong_triggered();
@@ -108,6 +106,8 @@ private slots:
 
 
     void on_actionQuy_triggered();
+
+    void on_dateEdit_ngadk_dateChanged(const QDate &date);
 
 private:
     void loadpage();

@@ -71,7 +71,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Đang ở</string>
+     <string>Đã đến ở</string>
     </property>
    </widget>
    <widget class="QRadioButton" name="radioButton_2">
@@ -115,11 +115,22 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="lineEdit"/>
-    </item>
     <item row="0" column="1">
      <widget class="QComboBox" name="comboBox"/>
+    </item>
+    <item row="1" column="1">
+     <widget class="QDateEdit" name="dateEdit">
+      <property name="date">
+       <date>
+        <year>2014</year>
+        <month>1</month>
+        <day>1</day>
+       </date>
+      </property>
+      <property name="displayFormat">
+       <string>yyyy</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

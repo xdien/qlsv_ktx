@@ -104,3 +104,4 @@ void Dialog_setting::on_toolButton_clicked()
     dir = dialog.getExistingDirectory(0,"Caption",QString(),QFileDialog::ShowDirsOnly);
     qDebug()<<dir;
 }
+

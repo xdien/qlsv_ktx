@@ -25,6 +25,13 @@
      <property name="fieldGrowthPolicy">
       <enum>QFormLayout::FieldsStayAtSizeHint</enum>
      </property>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>IP/hostname</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="1">
       <widget class="QLineEdit" name="linedialog_ip">
        <property name="sizePolicy">
@@ -41,6 +48,13 @@
        </property>
       </widget>
      </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>User</string>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="1">
       <widget class="QLineEdit" name="linedialog_user">
        <property name="sizePolicy">
@@ -54,6 +68,13 @@
          <width>150</width>
          <height>0</height>
         </size>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Pass</string>
        </property>
       </widget>
      </item>
@@ -76,6 +97,13 @@
        </property>
       </widget>
      </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Database</string>
+       </property>
+      </widget>
+     </item>
      <item row="7" column="1">
       <widget class="QLineEdit" name="linedialog_db">
        <property name="sizePolicy">
@@ -92,45 +120,17 @@
        </property>
       </widget>
      </item>
-     <item row="8" column="1">
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>Test</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>Database</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Pass</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>User</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>IP/hostname</string>
-       </property>
-      </widget>
-     </item>
      <item row="8" column="0">
       <widget class="QToolButton" name="toolButton">
        <property name="text">
         <string>...</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Test</string>
        </property>
       </widget>
      </item>

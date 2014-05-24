@@ -17,10 +17,14 @@ Dialog_chitietSV::Dialog_chitietSV(QWidget *parent, QString st) :
         ui->lineEdit_sdt->setText(query.value(3).toString());
         ui->lineEdit_mssv->setText(st);
         ui->radioButton->setChecked(query.value(4).toBool());
-        ui->lineEdit_lop->setText(temp);
         ui->dateEdit->setDate(query.value(5).toDate());
         QPixmap pix(query.value(6).toString());
         ui->label_pic->setPixmap(pix.scaled(120,140,Qt::KeepAspectRatio));
+        query.exec("select * from LOP where ten_lop = '"+temp+"'");
+        if(query.next())
+        {
+            ui->lineEdit_lop->setText(query.value(2).toString());
+        }
         //tim ten dt
         reciveString = "select DOI_TUONG.ten_dt from SINH_VIEN " \
                 "left join THUOC_DT " \
@@ -70,7 +74,7 @@ Dialog_chitietSV::Dialog_chitietSV(QWidget *parent, QString st) :
         diachi.trimmed();
         ui->textEdit_diachi->append(diachi);
         //truy van hop dong
-        query.exec("select * from HOP_DONG where mssv = '"+st+"'");
+        query.exec("select * from HOP_DONG where mssv = '"+st+"' and ngay_di in ('0000-00-00')");
         if(query.next())
         {
             ui->label_stthd->setText(query.value(0).toString());
@@ -108,7 +112,7 @@ Dialog_chitietSV::Dialog_chitietSV(QWidget *parent, QString st) :
         }
         else
         {
-            ui->label_thongbao->setText(QString::fromUtf8("Sinh viên này chưa đăng ký́"));
+            ui->label_thongbao->setText(QString::fromUtf8("Sinh viên này chưa đăng ký́ hoăc rời phòng"));
         }
     }
     else
